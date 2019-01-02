@@ -1,5 +1,5 @@
 CXX		  := g++
-CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb 
+CXX_FLAGS := -Wall -Wextra -ggdb 
 
 BIN		:= bin
 SRC		:= src
@@ -17,7 +17,7 @@ run: clean all
 	./$(BIN)/$(EXECUTABLE)
 
 $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
-	$(CXX) $^ -I/usr/local/include/SDL2 -L/usr/local/lib -Wl,-rpath,/usr/local/lib -Wl,--enable-new-dtags -lSDL2 -o $@ $(LIBRARIES)
+	$(CXX) $^  -I$(INCLUDE) -I/usr/local/include/SDL2 -L/usr/local/lib -Wl,-rpath,/usr/local/lib -Wl,--enable-new-dtags -lSDL2 -o $@ $(LIBRARIES)
 
 clean:
 	-rm $(BIN)/*

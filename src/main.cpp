@@ -1,22 +1,24 @@
 #include <iostream>
 #include <SDL.h>
+#include <Game.hpp>
 
 using namespace std;
 
+Game *g = NULL;
+
 int main(){
-	cout << "--- 2D Game Engine ---";
+	
+	g = new Game();
 
-	SDL_Init(SDL_INIT_EVERYTHING);
+	g->init("Game test", 50,50,800,600,true);
 
-	SDL_Window *window = SDL_CreateWindow("Title",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, 600, 400, SDL_WINDOW_SHOWN);
-	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
-
-	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-
-	SDL_RenderClear(renderer);
-	SDL_RenderPresent(renderer);
-
-	SDL_Delay(3000);
+	while (g->running())
+	{
+		g->handleEvents();
+		g->update();
+		g->render();
+	}
     
+	g->clean();
 	return 0;
 }
