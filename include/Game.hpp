@@ -8,7 +8,6 @@ public:
     Game();
     ~Game();
 
-    void saludar();
     void update();
     void render();
     void handleEvents();
@@ -22,4 +21,8 @@ private:
     SDL_Window *window;
     SDL_Renderer *renderer;
     int cnt;
+
+    SDL_Texture *m_pTexture;
+    SDL_Rect m_sourceRect;
+    SDL_Rect m_targetRect;
 };

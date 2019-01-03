@@ -1,16 +1,12 @@
 #include "Game.hpp"
 #include <iostream>
 #include <SDL.h>
+#include <unistd.h>
 
 using namespace std;
 
 Game::Game(){}
 Game::~Game(){}
-
-void Game::saludar()
-{
-    cout << "Hola!" << endl;
-}
 
 void Game::update()
 {
@@ -21,6 +17,8 @@ void Game::render()
 {
     SDL_RenderClear(renderer);
     //add stuff to renderer
+    cout << "rendereo" << endl;
+    SDL_RenderCopy(renderer,m_pTexture,&m_sourceRect,&m_targetRect);
     SDL_RenderPresent(renderer);
 }
 
@@ -39,12 +37,41 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         {
             cout << "Window created..." << endl;
         }
+        else
+        {
+            cout << "window creation fail" << endl;
+            return;
+        }
 
         renderer = SDL_CreateRenderer(window,-1,0);
         if (renderer){
             SDL_SetRenderDrawColor(renderer,50,50,50,255);
             cout << "Renderer created!" << endl;
         }
+        else
+        {
+            cout << "Renderer creation failed" << endl;
+            return;
+        }
+
+        SDL_Surface *surface = SDL_LoadBMP("assets/char.bmp");
+        if (!surface){
+            cout << "surface creation failed: " << SDL_GetError() ;
+            return;
+            
+        }
+        m_pTexture = SDL_CreateTextureFromSurface(renderer,surface);
+        SDL_FreeSurface(surface);
+
+        if (!m_pTexture)
+        {
+        }
+
+        SDL_QueryTexture(m_pTexture,NULL,NULL,&m_sourceRect.w,&m_sourceRect.h);
+        m_targetRect.h = m_sourceRect.h;
+        m_targetRect.w = m_sourceRect.w;
+        m_targetRect.x = m_targetRect.y = m_sourceRect.x = m_sourceRect.y = 0;
+        cout << "cargue la perra imagen" << endl;
 
         isRunning = true;
     } else {

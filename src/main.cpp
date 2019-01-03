@@ -10,7 +10,7 @@ int main(){
 	
 	g = new Game();
 
-	g->init("Game test", 50,50,800,600,true);
+	g->init("Game test", 50,50,800,600,false);
 
 	while (g->running())
 	{
