@@ -4,6 +4,7 @@
 #include <Component.hpp>
 #include <GameObject.hpp>
 #include <TransformComponent.hpp>
+#include <ComponentIdentifier.hpp>
 
 using namespace std;
 
@@ -24,15 +25,26 @@ int main(){
 
 	tc = go->getComponent<TransformComponent>();
 	tc->info();
-	
+
+	cout << "objeto 2" << endl;
+	GameObject* go2 = tc->getGameObject();
+	go2->getComponent<TransformComponent>()->info();
+	go2->getComponent<TransformComponent>()->setPos(1,2);
+	go2->getComponent<TransformComponent>()->info();
+	tc->info();
+	go->getComponent<TransformComponent>()->info();
+
+	GameObject *g3 = new GameObject();
+	g3->getComponent<TransformComponent>()->info();
+
 	while (false && g->running())
 	{
 		g->handleEvents();
 		g->update();
 		g->render();
-		cout << Component::getComponentID<int>() << endl;
-		cout << Component::getComponentID<float>() << endl;
-		cout << Component::getComponentID<bool>() << endl;
+		cout << ComponentIdentifier::getComponentID<int>() << endl;
+		cout << ComponentIdentifier::getComponentID<float>() << endl;
+		cout << ComponentIdentifier::getComponentID<bool>() << endl;
 		
 	}
     

@@ -1,8 +1,10 @@
 #pragma once
 #include <vector>
+#include <ComponentIdentifier.hpp>
 
 // avoid ciclic compilation error
-class GameObject;
+class Component;
+
 #include <Component.hpp>
 
 class GameObject {
@@ -27,7 +29,7 @@ public:
    
    template <typename T>
    inline T* getComponent(){
-      int compId = Component::getComponentID<T>();
+      int compId = ComponentIdentifier::getComponentID<T>();
       auto *comp = m_componnents[compId];
       return static_cast<T*>(comp);
    }
