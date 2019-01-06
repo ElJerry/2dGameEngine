@@ -24,6 +24,47 @@ void GameTexture::render(){
 }
 
 void GameTexture::update(){
-    m_targetRectangle.x = (m_targetRectangle.x + 1) % 800;
-    m_targetRectangle.y = (m_targetRectangle.y + 1) % 600;
+    
+}
+
+void GameTexture::setSourceRecProp(GameTexture::RectProp prop, int val){
+    
+    switch(prop){
+        case RectProp::X_POS:
+            m_sourceRectangle.x = val;
+            break;
+        case RectProp::Y_POS:
+            m_sourceRectangle.y = val;
+            break;
+        case RectProp::HEIGHT:
+            m_sourceRectangle.h = val;
+            break;  
+        case RectProp::WITDH:
+            m_sourceRectangle.w = val;
+            break;
+        default:
+            //Not implemented
+            break;
+    }
+}
+
+void GameTexture::setTargetRecProp(GameTexture::RectProp prop, int val){
+    
+    switch(prop){
+        case RectProp::X_POS:
+            m_targetRectangle.x = val;
+            break;
+        case RectProp::Y_POS:
+            m_targetRectangle.y = val;
+            break;
+        case RectProp::HEIGHT:
+            m_targetRectangle.h = val;
+            break;  
+        case RectProp::WITDH:
+            m_targetRectangle.w = val;
+            break;
+        default:
+            //Not implemented
+            break;
+    }
 }

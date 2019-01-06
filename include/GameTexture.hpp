@@ -12,15 +12,20 @@ private:
 
     SDL_Renderer *renderer;
 
+    enum RectProp {
+        X_POS,
+        Y_POS,
+        WITDH,
+        HEIGHT
+    };
+
 public:
     GameTexture(char* path, SDL_Renderer *renderer);
     void render();
     void update();
 
     //Source rectangle methods
-    void sourceRecX(int x);
-    void sourceRecY(int y);
-    void sourceRecW(int w);
-    void sourceRecH(int h);
+    void setSourceRecProp(GameTexture::RectProp prop, int val);
+    void setTargetRecProp(GameTexture::RectProp prop, int val);
 
 };
