@@ -15,6 +15,13 @@ public:
     void init(const char *title, int xpos, int ypos, int width, int height, bool fullscreen);
 
     bool running();
+    
+    static SDL_Renderer* ren;
+
+    static SDL_Renderer* getRenderer(){
+        
+        return ren;
+    }
 
 private:
     bool isRunning;

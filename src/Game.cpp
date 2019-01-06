@@ -7,6 +7,7 @@
 using namespace std;
 
 GameTexture *gt1;
+SDL_Renderer* Game::ren;
 
 Game::Game() {}
 Game::~Game() {}
@@ -58,6 +59,8 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
             cout << "Renderer creation failed" << endl;
             return;
         }
+
+        ren = renderer;
 
         /*SDL_Surface *surface = SDL_LoadBMP("assets/char.bmp");
         if (!surface){

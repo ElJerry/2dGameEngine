@@ -5,6 +5,7 @@
 #include <GameObject.hpp>
 #include <TransformComponent.hpp>
 #include <ComponentIdentifier.hpp>
+#include <TextureComponent.hpp>
 
 using namespace std;
 
@@ -36,7 +37,8 @@ int main(){
 
 	GameObject *g3 = new GameObject();
 	g3->getComponent<TransformComponent>()->info();
-
+	g3->addComponent<TextureComponent,char*>("assets/char.bmp");
+	g3->getComponent<TextureComponent>()->info();
 	while (false && g->running())
 	{
 		g->handleEvents();

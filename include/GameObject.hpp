@@ -20,8 +20,16 @@ public:
    void update();
    void render();
 
-   template <typename T>
-   bool addComponent();
+   template <typename T, typename... TArgs>
+   bool addComponent(TArgs&&... mArgs){
+      T *comp = new T(std::forward<TArgs>(mArgs)...);
+      Component *c = static_cast<Component*>(comp);
+      c->setGameObject(this);
+
+      m_componnents[ComponentIdentifier::getComponentID<T>()] = comp;
+      
+      return 1;
+   }
 
    /*template <typename T>
    T* getComponent();
