@@ -7,6 +7,9 @@ private:
     int xPos, yPos;
 
 public:
+    TransformComponent(){
+        xPos = yPos = 0;
+    }
 
     void render() ;
     void update() ;
@@ -15,4 +18,12 @@ public:
     void info();
 
     void setPos(int x, int y);
+
+    int getX(){
+        return xPos;
+    }
+
+    int getY(){
+        return yPos;
+    }
 };

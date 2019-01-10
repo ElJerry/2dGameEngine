@@ -3,10 +3,14 @@
 #include <SDL.h>
 #include <unistd.h>
 #include <GameTexture.hpp>
+#include <GameObject.hpp>
+#include <RendererComponent.hpp>
+#include <TextureComponent.hpp>
+#include <TransformComponent.hpp>
 
 using namespace std;
 
-GameTexture *gt1;
+GameObject *gameObject, *go2;
 SDL_Renderer* Game::ren;
 
 Game::Game() {}
@@ -15,15 +19,16 @@ Game::~Game() {}
 void Game::update()
 {
     cout << "cnt: " << cnt++ << endl;
-    gt1->update();
+    gameObject->update();
+    go2->update();
 }
 
 void Game::render()
 {
     SDL_RenderClear(renderer);
     //add stuff to renderer
-    cout << "rendereo" << endl;
-    gt1->render();
+    gameObject->render();
+    go2->render();
     SDL_RenderPresent(renderer);
 }
 
@@ -59,32 +64,21 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
             cout << "Renderer creation failed" << endl;
             return;
         }
-
+        cout << "Renderer original es " << renderer << endl;
         ren = renderer;
 
-        /*SDL_Surface *surface = SDL_LoadBMP("assets/char.bmp");
-        if (!surface){
-            cout << "surface creation failed: " << SDL_GetError() ;
-            return;
-            
-        }
-        m_pTexture = SDL_CreateTextureFromSurface(renderer,surface);
-        SDL_FreeSurface(surface);
+        gameObject = new GameObject();
+        gameObject->addComponent<TextureComponent,char*>("assets/char.bmp");
+        gameObject->addComponent<TransformComponent>();
+        gameObject->addComponent<RendererComponent>();
 
-        if (!m_pTexture)
-        {
-            cout << "texture creation failed: " << SDL_GetError() ;
-            return;
-        }
+        go2 = new GameObject();
+        go2->addComponent<TextureComponent,char*>("assets/char.bmp");
+        go2->addComponent<TransformComponent>();
+        go2->addComponent<RendererComponent>();
 
-        SDL_QueryTexture(m_pTexture,NULL,NULL,&m_sourceRect.w,&m_sourceRect.h);
-        m_targetRect.h = m_sourceRect.h;
-        m_targetRect.w = m_sourceRect.w;
-        m_targetRect.x = m_targetRect.y = m_sourceRect.x = m_sourceRect.y = 0;
-        cout << "cargue la perra imagen" << endl;*/
-
-        gt1 = new GameTexture("assets/char.bmp",renderer);
-
+        go2->getComponent<TransformComponent>()->setPos(50,50);
+        cout << "finished creating stuff" << endl;
         isRunning = true;
     }
     else

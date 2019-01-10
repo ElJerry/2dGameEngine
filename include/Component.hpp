@@ -7,12 +7,13 @@ class GameObject;
 
 class Component {
 
-private:
+protected:
 
     GameObject* gameObject;
 
 public:
     Component(){};
+    ~Component(){};
 
     virtual void render();
     virtual void update();

@@ -8,5 +8,13 @@ GameObject::GameObject(){
 }
 
 void GameObject::render(){
+    for(Component* c : m_componnents){
+        if(c!=NULL) c->render();
+    }
+}
 
+void GameObject::update(){
+    for(Component* c : m_componnents){
+        if(c!=NULL) c->update();
+    }
 }
