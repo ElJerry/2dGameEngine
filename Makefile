@@ -17,7 +17,7 @@ run: clean all
 	./$(BIN)/$(EXECUTABLE)
 
 $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
-	$(CXX) $^  -I$(INCLUDE) -I/usr/local/include/SDL2 -L/usr/local/lib -Wl,-rpath,/usr/local/lib -Wl,--enable-new-dtags -lSDL2 -o $@ $(LIBRARIES)
+	$(CXX) $^  -I$(INCLUDE) -I/usr/local/include/SDL2 -I/usr/include/SDL2 -L/usr/local/lib -Wl,-rpath,/usr/local/lib -Wl,--enable-new-dtags -lSDL2 -o $@ $(LIBRARIES)
 
 clean:
 	-rm $(BIN)/*

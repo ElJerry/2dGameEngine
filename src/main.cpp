@@ -39,14 +39,14 @@ int main(){
 	g3->getComponent<TransformComponent>()->info();
 	g3->addComponent<TextureComponent,char*>("assets/char.bmp");
 	g3->getComponent<TextureComponent>()->info();
-	while (false && g->running())
+	while (g->running())
 	{
 		g->handleEvents();
 		g->update();
 		g->render();
-		cout << ComponentIdentifier::getComponentID<int>() << endl;
-		cout << ComponentIdentifier::getComponentID<float>() << endl;
-		cout << ComponentIdentifier::getComponentID<bool>() << endl;
+		// cout << ComponentIdentifier::getComponentID<int>() << endl;
+		// cout << ComponentIdentifier::getComponentID<float>() << endl;
+		// cout << ComponentIdentifier::getComponentID<bool>() << endl;
 		
 	}
     
