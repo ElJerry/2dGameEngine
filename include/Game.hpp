@@ -4,6 +4,15 @@
 #include <stdio.h>
 
 class Game {
+private:
+    bool isRunning;
+    SDL_Window *window;
+    SDL_Renderer *renderer;
+
+    SDL_Texture *m_pTexture;
+    SDL_Rect m_sourceRect;
+    SDL_Rect m_targetRect;
+
 public:
     Game();
     ~Game();
@@ -18,17 +27,5 @@ public:
     
     static SDL_Renderer* ren;
 
-    static SDL_Renderer* getRenderer(){
-        
-        return ren;
-    }
-
-private:
-    bool isRunning;
-    SDL_Window *window;
-    SDL_Renderer *renderer;
-
-    SDL_Texture *m_pTexture;
-    SDL_Rect m_sourceRect;
-    SDL_Rect m_targetRect;
+    static SDL_Renderer* getRenderer();
 };

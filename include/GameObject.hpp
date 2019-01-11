@@ -31,10 +31,6 @@ public:
       return 1;
    }
 
-   /*template <typename T>
-   T* getComponent();
-   */
-   
    template <typename T>
    inline T* getComponent(){
       int compId = ComponentIdentifier::getComponentID<T>();

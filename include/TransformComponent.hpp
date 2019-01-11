@@ -14,16 +14,8 @@ public:
     void render() ;
     void update() ;
     void handleEvents() ;
-
     void info();
-
     void setPos(int x, int y);
-
-    int getX(){
-        return xPos;
-    }
-
-    int getY(){
-        return yPos;
-    }
+    int getX();
+    int getY();
 };

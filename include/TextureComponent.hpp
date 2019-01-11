@@ -10,6 +10,7 @@ class TextureComponent : public Component{
 private:
     SDL_Texture *m_texture;
     char* texturePath;
+    
 public:
 
     TextureComponent(char *path){
@@ -31,14 +32,8 @@ public:
         std::cout << "Created texture\n";
     }
 
-    void info(){
-        std::cout << "texture path: " << texturePath << std::endl;
-    }
+    void info();
 
-    SDL_Texture* getTexture(){
-        return m_texture;
-    }
+    SDL_Texture* getTexture();
 
-    //void update() override{ std::cout << "update from texturecomp\n";}
-    //void render() override{ std::cout << "render from texturecomp\n"; }
 };

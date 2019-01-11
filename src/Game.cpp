@@ -112,3 +112,7 @@ bool Game::running()
 {
     return isRunning;
 }
+
+SDL_Renderer* Game::getRenderer(){
+    return ren;
+}

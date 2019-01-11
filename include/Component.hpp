@@ -19,11 +19,7 @@ public:
     virtual void update();
     virtual void handleEvents();
 
-    void setGameObject(GameObject* gO){
-        gameObject = gO;
-    }
+    void setGameObject(GameObject* gO);
 
-    GameObject* getGameObject(){
-        return gameObject;
-    }
+    GameObject* getGameObject();
 };

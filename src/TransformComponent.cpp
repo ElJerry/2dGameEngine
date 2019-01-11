@@ -21,3 +21,11 @@ void TransformComponent::setPos(int x, int y){
     xPos = x;
     yPos = y;
 }
+
+int TransformComponent::getX(){
+    return xPos;
+}
+
+int TransformComponent::getY(){
+    return yPos;
+}

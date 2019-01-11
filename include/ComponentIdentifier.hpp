@@ -2,10 +2,8 @@
 
 class ComponentIdentifier {
 private:
-    static int getNewID(){
-        static int id = 0;
-        return id++;
-    }
+    static int getNewID();
+    
 public:
     template <typename T>
     static int getComponentID(){
