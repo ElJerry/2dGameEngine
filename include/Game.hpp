@@ -27,7 +27,6 @@ private:
     bool isRunning;
     SDL_Window *window;
     SDL_Renderer *renderer;
-    int cnt;
 
     SDL_Texture *m_pTexture;
     SDL_Rect m_sourceRect;

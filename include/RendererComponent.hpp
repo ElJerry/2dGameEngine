@@ -19,15 +19,15 @@ private:
 
 public:
     RendererComponent(){
-        cout << "entre a renderer\n" ;
+        // cout << "entre a renderer\n" ;
         renderer = Game::getRenderer();
-        cout << "Renderer grabed is " << renderer << endl;
-        std::cout << "RendererComponent created" << std::endl;
+        // cout << "Renderer grabed is " << renderer << endl;
+        // std::cout << "RendererComponent created" << std::endl;
     }
     ~RendererComponent(){};
 
     void render() override{
-        std::cout << "Rendering" << std::endl;
+        // std::cout << "Rendering" << std::endl;
         SDL_RenderCopy(renderer,m_texture,&sourceRect,&destRect);
     }
 

@@ -18,7 +18,6 @@ Game::~Game() {}
 
 void Game::update()
 {
-    cout << "cnt: " << cnt++ << endl;
     gameObject->update();
     go2->update();
 }
@@ -64,7 +63,6 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
             cout << "Renderer creation failed" << endl;
             return;
         }
-        cout << "Renderer original es " << renderer << endl;
         ren = renderer;
 
         gameObject = new GameObject();

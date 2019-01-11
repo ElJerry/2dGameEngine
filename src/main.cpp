@@ -18,13 +18,9 @@ int main(){
 	g->init("Game test", 50,50,800,600,false);
 	while (g->running())
 	{
-		cout << "ciclo\n";
 		g->handleEvents();
 		g->update();
 		g->render();
-		// cout << ComponentIdentifier::getComponentID<int>() << endl;
-		// cout << ComponentIdentifier::getComponentID<float>() << endl;
-		// cout << ComponentIdentifier::getComponentID<bool>() << endl;
 		
 	}
     

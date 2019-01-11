@@ -39,6 +39,6 @@ public:
         return m_texture;
     }
 
-    void update() override{ std::cout << "update from texturecomp\n";}
-    void render() override{ std::cout << "render from texturecomp\n"; }
+    //void update() override{ std::cout << "update from texturecomp\n";}
+    //void render() override{ std::cout << "render from texturecomp\n"; }
 };

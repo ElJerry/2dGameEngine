@@ -2,11 +2,11 @@
 
 
 void TransformComponent::render(){
-    std::cout << "render from transfomComponent\n";
+    // std::cout << "render from transfomComponent\n";
 }
 
 void TransformComponent::update(){
-    std::cout << "update from transfomComponent\n";
+    // std::cout << "update from transfomComponent\n";
 }
 
 void TransformComponent::handleEvents(){
