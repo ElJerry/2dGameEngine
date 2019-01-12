@@ -1,6 +1,7 @@
 #pragma once
 #include <Component.hpp>
 #include <iostream>
+#include <SDL.h>
 
 class TransformComponent: public Component {
 private:

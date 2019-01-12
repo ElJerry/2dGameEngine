@@ -7,10 +7,10 @@ private:
     SDL_Rect m_sourceRectangle;
     SDL_Rect m_targetRectangle;
 
-    SDL_Texture *m_texture;
-    char *texturePath;
+    SDL_Texture *m_texture = NULL;
+    char *texturePath = NULL;
 
-    SDL_Renderer *renderer;
+    SDL_Renderer *renderer = NULL;
 
     enum RectProp {
         X_POS,

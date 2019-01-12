@@ -7,10 +7,11 @@
 #include <RendererComponent.hpp>
 #include <TextureComponent.hpp>
 #include <TransformComponent.hpp>
+#include <SpriteAnimatorComponent.hpp>
 
 using namespace std;
 
-GameObject *gameObject, *go2;
+GameObject *gameObject;
 SDL_Renderer* Game::ren;
 
 Game::Game() {}
@@ -19,7 +20,6 @@ Game::~Game() {}
 void Game::update()
 {
     gameObject->update();
-    go2->update();    
 
     GameObject* found = GameObject::find("mono2");
     if(found != NULL){
@@ -32,7 +32,6 @@ void Game::render()
     SDL_RenderClear(renderer);
     //add stuff to renderer
     gameObject->render();
-    go2->render();
     SDL_RenderPresent(renderer);
 }
 
@@ -73,12 +72,10 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         gameObject = new GameObject("mono1");
         gameObject->addComponent<TextureComponent,char*>("assets/male_sprite_model.png");
         gameObject->addComponent<RendererComponent>();
+        gameObject->addComponent<SpriteAnimatorComponent,int,int,int,int>(4,8,32,64);
+        
+        gameObject->getComponent<SpriteAnimatorComponent>()->setRow(2);
 
-        go2 = new GameObject("mono2");
-        go2->addComponent<TextureComponent,char*>("assets/char.bmp");
-        go2->addComponent<RendererComponent>();
-
-        go2->getComponent<TransformComponent>()->setPos(50,50);
         cout << "finished creating stuff" << endl;
         isRunning = true;
     }

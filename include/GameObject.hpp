@@ -15,7 +15,7 @@ private:
    int max_componnets = 35;
 
    static std::vector<GameObject*> gameObjects;
-   char* m_name;
+   char* m_name = NULL;
 
 
 public:

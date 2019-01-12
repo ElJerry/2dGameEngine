@@ -6,10 +6,10 @@
 class Game {
 private:
     bool isRunning;
-    SDL_Window *window;
-    SDL_Renderer *renderer;
+    SDL_Window *window = NULL;
+    SDL_Renderer *renderer = NULL;
 
-    SDL_Texture *m_pTexture;
+    SDL_Texture *m_pTexture = NULL;
     SDL_Rect m_sourceRect;
     SDL_Rect m_targetRect;
 

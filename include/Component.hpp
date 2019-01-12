@@ -9,7 +9,7 @@ class Component {
 
 protected:
 
-    GameObject* gameObject;
+    GameObject* gameObject = NULL;
 
 public:
     Component(){};

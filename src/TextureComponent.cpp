@@ -7,3 +7,11 @@ void TextureComponent::info(){
 SDL_Texture* TextureComponent::getTexture(){
     return m_texture;
 }
+
+int TextureComponent::getWidth(){
+    return width;
+}
+
+int TextureComponent::getHeight(){
+    return height;
+}

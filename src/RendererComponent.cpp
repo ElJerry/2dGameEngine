@@ -10,7 +10,7 @@ void RendererComponent::render(){
 void RendererComponent::update(){
     //make sure all required components are loaded and referenced
     // texture component
-    if(texture==NULL){
+    if(!texture){
         texture = gameObject->getComponent<TextureComponent>();
         m_texture = texture->getTexture();
         //load size of texture into sourceRect
@@ -31,4 +31,8 @@ void RendererComponent::update(){
     destRect.w = sourceRect.w;
     destRect.h = sourceRect.h;
 
+}
+
+SDL_Rect* RendererComponent::getSourceRect(){
+    return &sourceRect;
 }

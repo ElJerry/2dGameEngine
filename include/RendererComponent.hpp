@@ -10,12 +10,12 @@ using namespace std;
 
 class RendererComponent : public Component {
 private:
-    TransformComponent *transform;
-    TextureComponent *texture;
+    TransformComponent *transform = NULL;
+    TextureComponent *texture = NULL;
     
-    SDL_Texture *m_texture;
+    SDL_Texture *m_texture = NULL;
     SDL_Rect sourceRect, destRect;
-    SDL_Renderer *renderer;
+    SDL_Renderer *renderer = NULL;
 
 public:
     RendererComponent(){
@@ -29,5 +29,7 @@ public:
     void render() override;
 
     void update() override;
+
+    SDL_Rect* getSourceRect();
     
 };

@@ -7,6 +7,8 @@ void TransformComponent::render(){
 
 void TransformComponent::update(){
     // std::cout << "update from transfomComponent\n";
+    int ticks = SDL_GetTicks();
+    xPos = (ticks / 50) % 800;
 }
 
 void TransformComponent::handleEvents(){
