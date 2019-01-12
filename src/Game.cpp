@@ -71,7 +71,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         ren = renderer;
 
         gameObject = new GameObject("mono1");
-        gameObject->addComponent<TextureComponent,char*>("assets/char.bmp");
+        gameObject->addComponent<TextureComponent,char*>("assets/male_sprite_model.png");
         gameObject->addComponent<RendererComponent>();
 
         go2 = new GameObject("mono2");

@@ -2,6 +2,7 @@
 #include "Game.hpp"
 #include <iostream>
 
+
 GameTexture::GameTexture(char* path, SDL_Renderer *renderer){
     SDL_Surface *surface = SDL_LoadBMP(path);
     if(!surface){

@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <Game.hpp>
 #include <iostream>
+#include <SDL_image.h>
 
 using namespace std;
 
@@ -14,20 +15,13 @@ private:
 public:
 
     TextureComponent(char *path){
-        SDL_Surface *surface = SDL_LoadBMP(path);
-
-        if(!surface){
-            cout << "Error al crear surface\n";
-            exit;
-        }
-
-        m_texture = SDL_CreateTextureFromSurface(Game::ren,surface);
+       
+        m_texture = IMG_LoadTexture(Game::ren,path);
         if(!m_texture){
             cout << "Error al crear la textura\n";
             exit;
         }
-
-        SDL_FreeSurface(surface);
+        
         texturePath = path;
         std::cout << "Created texture\n";
     }
