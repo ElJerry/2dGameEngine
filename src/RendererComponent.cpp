@@ -2,7 +2,8 @@
 
 void RendererComponent::render(){
     // std::cout << "Rendering" << std::endl;
-    SDL_RenderCopy(renderer,m_texture,&sourceRect,&destRect);
+    if(m_texture != NULL && renderer != NULL)
+        SDL_RenderCopy(renderer,m_texture,&sourceRect,&destRect);
 }
 
 
@@ -28,6 +29,6 @@ void RendererComponent::update(){
     destRect.x = transform->getX();
     destRect.y = transform->getY();
     destRect.w = sourceRect.w;
-        destRect.h = sourceRect.h;
+    destRect.h = sourceRect.h;
 
 }

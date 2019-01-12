@@ -16,12 +16,12 @@ int main(){
 	g = new Game();
 
 	g->init("Game test", 50,50,800,600,false);
+	
 	while (g->running())
 	{
 		g->handleEvents();
 		g->update();
-		g->render();
-		
+		g->render();		
 	}
     
 	g->clean();

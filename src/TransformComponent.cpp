@@ -29,3 +29,11 @@ int TransformComponent::getX(){
 int TransformComponent::getY(){
     return yPos;
 }
+
+void TransformComponent::addX(int x){
+    xPos += x;
+}
+
+void TransformComponent::addY(int y){
+    yPos =+ y;
+}

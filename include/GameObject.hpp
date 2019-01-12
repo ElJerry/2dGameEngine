@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <ComponentIdentifier.hpp>
+#include <string.h>
 
 // avoid ciclic compilation error
 class Component;
@@ -10,16 +11,33 @@ class Component;
 class GameObject {
 
 private:
-std::vector<Component*> m_componnents;
-int max_componnets = 35;
+   std::vector<Component*> m_componnents;
+   int max_componnets = 35;
+
+   static std::vector<GameObject*> gameObjects;
+   char* m_name;
+
 
 public:
 
-   GameObject();
 
    void update();
    void render();
+   void listComponents();
+   char* getName();
+   
+   // static methods
+   static GameObject* find(char* name);
 
+   GameObject(char* name);
+
+
+   // Template Zone - adding implementation in header file for templates
+
+   /*
+      Each time you add a component of a certain type, if other one already
+      exists, it will be overwritten and the older data will be lost
+   */
    template <typename T, typename... TArgs>
    bool addComponent(TArgs&&... mArgs){
       T *comp = new T(std::forward<TArgs>(mArgs)...);

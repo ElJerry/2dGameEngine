@@ -19,7 +19,12 @@ Game::~Game() {}
 void Game::update()
 {
     gameObject->update();
-    go2->update();
+    go2->update();    
+
+    GameObject* found = GameObject::find("mono2");
+    if(found != NULL){
+        found->getComponent<TransformComponent>()->setPos(500,500);    
+    }
 }
 
 void Game::render()
@@ -65,14 +70,12 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         }
         ren = renderer;
 
-        gameObject = new GameObject();
+        gameObject = new GameObject("mono1");
         gameObject->addComponent<TextureComponent,char*>("assets/char.bmp");
-        gameObject->addComponent<TransformComponent>();
         gameObject->addComponent<RendererComponent>();
 
-        go2 = new GameObject();
+        go2 = new GameObject("mono2");
         go2->addComponent<TextureComponent,char*>("assets/char.bmp");
-        go2->addComponent<TransformComponent>();
         go2->addComponent<RendererComponent>();
 
         go2->getComponent<TransformComponent>()->setPos(50,50);

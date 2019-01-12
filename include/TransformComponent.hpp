@@ -16,6 +16,8 @@ public:
     void handleEvents() ;
     void info();
     void setPos(int x, int y);
+    void addX(int x);
+    void addY(int y);
     int getX();
     int getY();
 };
