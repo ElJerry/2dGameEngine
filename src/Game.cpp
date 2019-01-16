@@ -11,7 +11,6 @@
 
 using namespace std;
 
-GameObject *gameObject;
 SDL_Renderer* Game::ren;
 
 Game::Game() {}
@@ -19,7 +18,10 @@ Game::~Game() {}
 
 void Game::update()
 {
-    gameObject->update();
+    
+    for(GameObject* go : GameObject::getGameObjects()){
+        go->update();
+    }
 
     GameObject* found = GameObject::find("mono2");
     if(found != NULL){
@@ -31,7 +33,9 @@ void Game::render()
 {
     SDL_RenderClear(renderer);
     //add stuff to renderer
-    gameObject->render();
+    for(GameObject* go : GameObject::getGameObjects()){
+        go->render();
+    }
     SDL_RenderPresent(renderer);
 }
 
@@ -69,12 +73,19 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         }
         ren = renderer;
 
-        gameObject = new GameObject("mono1");
+        GameObject* gameObject = GameObject::addGameObject("mono1");
         gameObject->addComponent<TextureComponent,char*>("assets/male_sprite_model.png");
         gameObject->addComponent<RendererComponent>();
-        gameObject->addComponent<SpriteAnimatorComponent,int,int,int,int>(4,8,32,64);
+        gameObject->addComponent<SpriteAnimatorComponent,int>(4,8,32,64);
         
         gameObject->getComponent<SpriteAnimatorComponent>()->setRow(2);
+
+        gameObject = GameObject::addGameObject("mono2");
+        gameObject->addComponent<TextureComponent,char*>("assets/male_sprite_model.png");
+        gameObject->addComponent<RendererComponent>();
+        gameObject->addComponent<SpriteAnimatorComponent,int>(4,8,32,64);
+        
+        gameObject->getComponent<SpriteAnimatorComponent>()->setRow(3);
 
         cout << "finished creating stuff" << endl;
         isRunning = true;

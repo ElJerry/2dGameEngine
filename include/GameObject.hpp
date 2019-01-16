@@ -17,6 +17,7 @@ private:
    static std::vector<GameObject*> gameObjects;
    char* m_name = NULL;
 
+   GameObject(char* name);
 
 public:
 
@@ -29,7 +30,10 @@ public:
    // static methods
    static GameObject* find(char* name);
 
-   GameObject(char* name);
+   static std::vector<GameObject*> getGameObjects();
+   static GameObject* addGameObject(char* name);
+   static bool removeGameObject(char* name);
+
 
 
    // Template Zone - adding implementation in header file for templates

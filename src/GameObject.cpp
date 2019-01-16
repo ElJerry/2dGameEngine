@@ -46,3 +46,12 @@ GameObject* GameObject::find(char* name){
     }
     return NULL;
 }
+
+GameObject* GameObject::addGameObject(char* name){
+    GameObject* go = new GameObject(name);
+    return go;
+}
+
+std::vector<GameObject*> GameObject::getGameObjects(){
+    return gameObjects;
+}
