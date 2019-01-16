@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include <Component.hpp>
 #include <TransformComponent.hpp>
 #include <RendererComponent.hpp>
@@ -11,6 +12,7 @@ private:
     int presentRow, presentColumn;
     int width, height, textureWidth, textureHeight;
     bool animateFlag = true;
+    vector<int> columnsInRow;
 
     TransformComponent *transform = NULL;
     RendererComponent *renderer = NULL;
@@ -27,10 +29,8 @@ public:
         height = h;
 
         presentRow = 0;
-        // std::cout << "valores de creacion de animator\n";
-        // std::cout << r << " " << c << " " << w << " " << h << "\n";
-        // int pause;
-        // std::cin >> pause;
+        
+        columnsInRow.assign(r,c);
     }
     
     void update() override;  
@@ -38,5 +38,7 @@ public:
     void setRow(int row);
     void setColumn(int column);
     void animate(bool animate);
+
+    void setColumnsInRow(int row, int column);
 
 };

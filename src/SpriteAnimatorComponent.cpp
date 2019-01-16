@@ -25,7 +25,7 @@ void SpriteAnimatorComponent::update(){
         if(animateFlag){
             //update x to next frame every 500ms
             int ticks = SDL_GetTicks();
-            x = (width * ((ticks / 100)% columns));
+            x = (width * ((ticks / 100)% columnsInRow[presentRow]));
         }
 
         sourceRect->x = x;
@@ -37,4 +37,8 @@ void SpriteAnimatorComponent::update(){
 
 void SpriteAnimatorComponent::setRow(int row){
     presentRow = row;
+}
+
+void SpriteAnimatorComponent::setColumnsInRow(int rows, int columns){
+    columnsInRow[rows] = columns;
 }

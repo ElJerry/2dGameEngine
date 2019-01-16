@@ -85,8 +85,8 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         gameObject->addComponent<RendererComponent>();
         gameObject->addComponent<SpriteAnimatorComponent,int>(4,8,32,64);
         
-        gameObject->getComponent<SpriteAnimatorComponent>()->setRow(3);
-
+        gameObject->getComponent<SpriteAnimatorComponent>()->setRow(0);
+        gameObject->getComponent<SpriteAnimatorComponent>()->setColumnsInRow(0,6);
         cout << "finished creating stuff" << endl;
         isRunning = true;
     }
