@@ -12,6 +12,7 @@ private:
     int presentRow, presentColumn;
     int width, height, textureWidth, textureHeight;
     bool animateFlag = true;
+    bool bounce = false;
     vector<int> columnsInRow;
 
     TransformComponent *transform = NULL;
@@ -40,5 +41,7 @@ public:
     void animate(bool animate);
 
     void setColumnsInRow(int row, int column);
+
+    void setBounce(bool bounce);
 
 };
