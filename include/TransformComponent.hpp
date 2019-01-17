@@ -2,23 +2,19 @@
 #include <Component.hpp>
 #include <iostream>
 #include <SDL.h>
+#include <Vector2D.hpp>
 
 class TransformComponent: public Component {
 private:
-    int xPos, yPos;
-
 public:
-    TransformComponent(){
-        xPos = yPos = 0;
-    }
+    Vector2D position;
+    Vector2D acceleration;
+    Vector2D speed;
+
+    TransformComponent(){}
 
     void render() ;
     void update() ;
     void handleEvents() ;
     void info();
-    void setPos(int x, int y);
-    void addX(int x);
-    void addY(int y);
-    int getX();
-    int getY();
 };

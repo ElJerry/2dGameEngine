@@ -26,8 +26,8 @@ void RendererComponent::update(){
     }
 
     //update destRec x and y with transform component
-    destRect.x = transform->getX();
-    destRect.y = transform->getY();
+    destRect.x = transform->position.getX();
+    destRect.y = transform->position.getY();
     destRect.w = sourceRect.w;
     destRect.h = sourceRect.h;
 

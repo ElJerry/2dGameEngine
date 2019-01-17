@@ -9,7 +9,10 @@ private:
 
 public:
 
-    Vector2D(){}
+    Vector2D(){
+        xPos = yPos = 0;
+    }
+
     Vector2D(int x, int y){
         xPos = x;
         yPos = y;

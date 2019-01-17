@@ -14,18 +14,28 @@ Game *g = NULL;
 
 int main(){
 	
-	// g = new Game();
+	g = new Game();
 
-	// g->init("Game test", 50,50,800,600,false);
+	g->init("Game test", 50,50,800,600,false);
 	
-	// while (g->running())
-	// {
-	// 	g->handleEvents();
-	// 	g->update();
-	// 	g->render();		
-	// }
+	int start, end;
+	while (g->running())
+	{
+		//make it 30fps
+		start = SDL_GetTicks();
+		g->handleEvents();
+		g->update();
+		g->render();		
+		end = SDL_GetTicks();
+
+		int fps = 1000 / 30;
+		int fps_dif = end - start;
+		if(fps_dif < fps){
+			SDL_Delay(fps - fps_dif);
+		}
+	}
     
-	// g->clean();
+	g->clean();
 
 	//vector testing
 	Vector2D v1, v2(3,4);

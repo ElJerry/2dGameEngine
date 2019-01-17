@@ -25,7 +25,7 @@ void Game::update()
 
     GameObject* found = GameObject::find("mono2");
     if(found != NULL){
-        found->getComponent<TransformComponent>()->setPos(500,500);    
+        found->getComponent<TransformComponent>()->position.setPos(500,500);    
     }
 }
 
