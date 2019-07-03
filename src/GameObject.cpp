@@ -3,7 +3,7 @@
 #include <utility>
 
 std::vector<GameObject*> GameObject::gameObjects;
-
+std::map<char*, GameObject*> GameObject::gameObjectsMap;
 GameObject::GameObject(char* name){
     m_name = name;
     m_componnents.resize(max_componnets);
@@ -11,6 +11,7 @@ GameObject::GameObject(char* name){
     addComponent<TransformComponent>();   
 
     gameObjects.push_back(this);
+    gameObjectsMap[name] = this;
 }
 
 void GameObject::render(){
@@ -39,12 +40,7 @@ char* GameObject::getName(){
 }
 
 GameObject* GameObject::find(char* name){
-    for(GameObject* g : gameObjects){
-        if(strcmp(name, g->m_name)==0){
-            return g;
-        }
-    }
-    return NULL;
+    return gameObjectsMap[name];
 }
 
 GameObject* GameObject::addGameObject(char* name){

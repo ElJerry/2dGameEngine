@@ -1,7 +1,10 @@
 #pragma once
+
 #include <vector>
 #include <ComponentIdentifier.hpp>
 #include <string.h>
+#include <map>
+#include <string>
 
 // avoid ciclic compilation error
 class Component;
@@ -15,6 +18,7 @@ private:
    int max_componnets = 35;
 
    static std::vector<GameObject*> gameObjects;
+   static std::map<char*, GameObject*> gameObjectsMap;
    char* m_name = NULL;
 
    GameObject(char* name);
