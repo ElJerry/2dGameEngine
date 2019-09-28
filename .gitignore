@@ -31,8 +31,12 @@
 *.out
 *.app
 
-#Vscode
+#editors
 .vscode*
+.idea/
 
 # Binaries
 bin
+
+#cmake build
+cmake-build-debug/
