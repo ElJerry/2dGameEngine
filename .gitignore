@@ -37,6 +37,6 @@
 
 # Binaries
 bin
-
+build/
 #cmake build
 cmake-build-debug/

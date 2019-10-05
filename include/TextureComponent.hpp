@@ -10,15 +10,15 @@ using namespace std;
 class TextureComponent : public Component{
 private:
     SDL_Texture *m_texture = NULL;
-    char* texturePath = NULL;
+    string texturePath = "";
 
     int width, height;
     
 public:
 
-    TextureComponent(char *path){
+    TextureComponent(string path){
        
-        m_texture = IMG_LoadTexture(Game::ren,path);
+        m_texture = IMG_LoadTexture(Game::ren,path.c_str());
         if(!m_texture){
             cout << "Error al crear la textura\n";
             exit;
