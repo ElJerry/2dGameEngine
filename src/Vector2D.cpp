@@ -1,5 +1,6 @@
 #include <Vector2D.hpp>
 #include <sstream>
+#include <cmath>
 
 void Vector2D::setX(int x){
     xPos = x;
@@ -25,6 +26,10 @@ int Vector2D::getX(){
 
 int Vector2D::getY(){
     return yPos;
+}
+
+float Vector2D::length() {
+    return sqrt((xPos * xPos) + (yPos * yPos));
 }
 
 void Vector2D::printVector(){

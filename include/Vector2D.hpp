@@ -24,6 +24,7 @@ public:
     int getX();
     int getY();
 
+    float length();
     void addVector(Vector2D v);
 
     void printVector();
