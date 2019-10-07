@@ -77,8 +77,8 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         gameObject->addComponent<TextureComponent>("assets/male_sprite_model.png");
         gameObject->addComponent<RendererComponent>();
         gameObject->addComponent<SpriteAnimatorComponent>(4,8,32,64);
-        
         gameObject->getComponent<SpriteAnimatorComponent>()->setRow(2);
+        gameObject->getComponent<TransformComponent>()->speed.setX(1);
 
         gameObject = GameObject::addGameObject("mono2");
         gameObject->addComponent<TextureComponent>("assets/male_sprite_model.png");

@@ -5,7 +5,7 @@
 
 class Vector2D{
 private:
-    int xPos, yPos;
+    float xPos, yPos;
 
 public:
 
@@ -13,19 +13,25 @@ public:
         xPos = yPos = 0;
     }
 
-    Vector2D(int x, int y){
+    Vector2D(float x, float y){
         xPos = x;
         yPos = y;
     }
 
-    void setX(int x);
-    void setY(int y);
-    void setPos(int x, int y);
-    int getX();
-    int getY();
+    void setX(float x);
+    void setY(float y);
+    void setPos(float x, float y);
+    float getX();
+    float getY();
 
     float length();
-    void addVector(Vector2D v);
+
+    void normalize();
+    void addVector(const Vector2D &v);
+    void subtractVector(const Vector2D &v);
+    void multiplyVector(float val);
+    void divideVector(float val);
+
 
     void printVector();
     std::string toString();
