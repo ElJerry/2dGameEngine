@@ -1,4 +1,4 @@
-#include "ComponentIdentifier.hpp"
+#include "components/ComponentIdentifier.hpp"
 
 int ComponentIdentifier::getNewID(){
     static int id = 0;

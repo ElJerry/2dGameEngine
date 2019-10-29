@@ -1,10 +1,10 @@
 #pragma once
-#include <Component.hpp>
+#include <components/Component.hpp>
 #include <SDL.h>
 #include <Game.hpp>
 #include <iostream>
-#include <TransformComponent.hpp>
-#include <TextureComponent.hpp>
+#include <components/TransformComponent.hpp>
+#include <components/TextureComponent.hpp>
 
 using namespace std;
 

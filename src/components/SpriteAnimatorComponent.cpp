@@ -1,4 +1,4 @@
-#include <SpriteAnimatorComponent.hpp>
+#include <components/SpriteAnimatorComponent.hpp>
 
 void SpriteAnimatorComponent::update(){
     

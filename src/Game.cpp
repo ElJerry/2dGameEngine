@@ -4,10 +4,10 @@
 #include <unistd.h>
 #include <GameTexture.hpp>
 #include <GameObject.hpp>
-#include <RendererComponent.hpp>
-#include <TextureComponent.hpp>
-#include <TransformComponent.hpp>
-#include <SpriteAnimatorComponent.hpp>
+#include <components/RendererComponent.hpp>
+#include <components/TextureComponent.hpp>
+#include <components/TransformComponent.hpp>
+#include <components/SpriteAnimatorComponent.hpp>
 
 using namespace std;
 

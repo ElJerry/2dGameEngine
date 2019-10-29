@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include <ComponentIdentifier.hpp>
+#include <components/ComponentIdentifier.hpp>
 #include <string.h>
 #include <map>
 #include <string>
@@ -9,7 +9,7 @@
 // avoid ciclic compilation error
 class Component;
 
-#include <Component.hpp>
+#include <components/Component.hpp>
 
 class GameObject {
 

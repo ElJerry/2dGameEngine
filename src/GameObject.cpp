@@ -1,5 +1,5 @@
 #include "GameObject.hpp"
-#include <TransformComponent.hpp>
+#include <components/TransformComponent.hpp>
 #include <utility>
 
 std::vector<GameObject*> GameObject::gameObjects;

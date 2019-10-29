@@ -1,4 +1,4 @@
-#include "TransformComponent.hpp"
+#include "components/TransformComponent.hpp"
 
 
 void TransformComponent::render(){

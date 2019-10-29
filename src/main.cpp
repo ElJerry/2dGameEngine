@@ -1,11 +1,11 @@
 #include <iostream>
 #include <SDL.h>
 #include <Game.hpp>
-#include <Component.hpp>
+#include <components/Component.hpp>
 #include <GameObject.hpp>
-#include <TransformComponent.hpp>
-#include <ComponentIdentifier.hpp>
-#include <TextureComponent.hpp>
+#include <components/TransformComponent.hpp>
+#include <components/ComponentIdentifier.hpp>
+#include <components/TextureComponent.hpp>
 #include <Vector2D.hpp>
 
 using namespace std;

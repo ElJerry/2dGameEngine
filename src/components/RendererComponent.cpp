@@ -1,4 +1,4 @@
-#include "RendererComponent.hpp"
+#include "components/RendererComponent.hpp"
 
 void RendererComponent::render(){
     // std::cout << "Rendering" << std::endl;

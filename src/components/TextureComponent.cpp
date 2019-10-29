@@ -1,4 +1,4 @@
-#include "TextureComponent.hpp"
+#include "components/TextureComponent.hpp"
 
 void TextureComponent::info(){
     std::cout << "texture path: " << texturePath << std::endl;

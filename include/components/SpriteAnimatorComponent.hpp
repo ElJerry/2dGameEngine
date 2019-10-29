@@ -1,10 +1,10 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include <Component.hpp>
-#include <TransformComponent.hpp>
-#include <RendererComponent.hpp>
-#include <TextureComponent.hpp>
+#include <components/Component.hpp>
+#include <components/TransformComponent.hpp>
+#include <components/RendererComponent.hpp>
+#include <components/TextureComponent.hpp>
 
 class SpriteAnimatorComponent : public Component {
 private:
