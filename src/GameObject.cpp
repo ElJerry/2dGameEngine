@@ -4,9 +4,15 @@
 
 std::vector<GameObject*> GameObject::gameObjects;
 std::map<char*, GameObject*> GameObject::gameObjectsMap;
+
 GameObject::GameObject(char* name){
     m_name = name;
     m_componnents.resize(max_componnets);
+
+    // make component array filled with nullptr
+    for(int i=0 ; i < max_componnets ; i++){
+        m_componnents[i] = nullptr;
+    }
     // all gameobjects must have a transform component
     addComponent<TransformComponent>();   
 

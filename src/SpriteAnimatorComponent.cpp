@@ -45,6 +45,9 @@ void SpriteAnimatorComponent::update(){
             }
         }
 
+        if(!sourceRect)
+            return;
+
         sourceRect->x = x;
         sourceRect->y = presentRow * height;
         sourceRect->w = width;
