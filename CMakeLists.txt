@@ -22,7 +22,6 @@ add_executable(2dGameTest
     src/components/ComponentIdentifier.cpp
     src/Game.cpp
     src/GameObject.cpp
-    src/GameTexture.cpp
     src/main.cpp
     src/components/RendererComponent.cpp
     src/components/SpriteAnimatorComponent.cpp

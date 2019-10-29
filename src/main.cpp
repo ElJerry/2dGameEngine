@@ -36,16 +36,5 @@ int main(){
 	}
     
 	g->clean();
-
-	//vector testing
-	Vector2D v1, v2(3,4);
-	cout << v2.toString() << endl;
-	v2.printVector();
-
-	v1.setPos(65,12);
-	v1.printVector();
-
-	v1.addVector(v2);
-	cout << v1.toString() << endl;
 	return 0;
 }

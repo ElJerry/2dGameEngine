@@ -15,28 +15,29 @@ private:
     bool bounce = false;
     vector<int> columnsInRow;
 
-    TransformComponent *transform = NULL;
-    RendererComponent *renderer = NULL;
-    TextureComponent *texture = NULL;
+    TransformComponent *transform = nullptr;
+    RendererComponent *renderer = nullptr;
+    TextureComponent *texture = nullptr;
 
-    SDL_Rect *sourceRect = NULL;
+    SDL_Rect *sourceRect = nullptr;
 
 public:
 
-    SpriteAnimatorComponent(int r, int c, int w, int h){
-        rows = r;
-        columns = c;
-        width = w;
-        height = h;
+    SpriteAnimatorComponent(int rows, int columns, int width, int height){
+        this->rows = rows;
+        this->columns = columns;
+        this->width = width;
+        this->height = height;
 
-        presentRow = 0;
+        presentColumn = presentRow = 0;
         
-        columnsInRow.assign(r,c);
+        columnsInRow.assign(rows, columns);
     }
     
     void update() override;  
 
     void setRow(int row);
+
     void setColumn(int column);
     void animate(bool animate);
 

@@ -13,7 +13,7 @@ GameObject::GameObject(char* name){
     for(int i=0 ; i < max_componnets ; i++){
         m_componnents[i] = nullptr;
     }
-    // all gameobjects must have a transform component
+    // all game objects must have a transform component
     addComponent<TransformComponent>();   
 
     gameObjects.push_back(this);
@@ -22,13 +22,13 @@ GameObject::GameObject(char* name){
 
 void GameObject::render(){
     for(Component* c : m_componnents){
-        if(c!=NULL) c->render();
+        if(c) c->render();
     }
 }
 
 void GameObject::update(){
     for(Component* c : m_componnents){
-        if(c!=NULL) c->update();
+        if(c) c->update();
     }
 }
 
@@ -36,7 +36,7 @@ void GameObject::listComponents(){
     int cnt = 0;
 
     for (Component* c : m_componnents)
-        if(c != NULL) cnt++;
+        if(c) cnt++;
 
     std::cout << "GameObject contains " << cnt << " components\n";    
 }
@@ -50,8 +50,7 @@ GameObject* GameObject::find(char* name){
 }
 
 GameObject* GameObject::addGameObject(char* name){
-    GameObject* go = new GameObject(name);
-    return go;
+    return new GameObject(name);
 }
 
 std::vector<GameObject*> GameObject::getGameObjects(){

@@ -1,12 +1,9 @@
 #include "Game.hpp"
 #include <iostream>
 #include <SDL.h>
-#include <unistd.h>
-#include <GameTexture.hpp>
 #include <GameObject.hpp>
 #include <components/RendererComponent.hpp>
 #include <components/TextureComponent.hpp>
-#include <components/TransformComponent.hpp>
 #include <components/SpriteAnimatorComponent.hpp>
 
 using namespace std;
@@ -18,14 +15,8 @@ Game::~Game() {}
 
 void Game::update()
 {
-    
     for(GameObject* go : GameObject::getGameObjects()){
         go->update();
-    }
-
-    GameObject* found = GameObject::find("mono2");
-    if(found != NULL){
-        found->getComponent<TransformComponent>()->position.setPos(500,500);    
     }
 }
 
@@ -78,16 +69,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         gameObject->addComponent<RendererComponent>();
         gameObject->addComponent<SpriteAnimatorComponent>(4,8,32,64);
         gameObject->getComponent<SpriteAnimatorComponent>()->setRow(2);
-        gameObject->getComponent<TransformComponent>()->speed.setX(1);
 
-        gameObject = GameObject::addGameObject("mono2");
-        gameObject->addComponent<TextureComponent>("assets/male_sprite_model.png");
-        gameObject->addComponent<RendererComponent>();
-        gameObject->addComponent<SpriteAnimatorComponent>(4,8,32,64);
-        
-        gameObject->getComponent<SpriteAnimatorComponent>()->setRow(0);
-        gameObject->getComponent<SpriteAnimatorComponent>()->setColumnsInRow(0,5);
-        gameObject->getComponent<SpriteAnimatorComponent>()->setBounce(true);
         cout << "finished creating stuff" << endl;
         isRunning = true;
     }
