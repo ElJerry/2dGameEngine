@@ -3,6 +3,7 @@
 // avoid ciclic compilation error
 class GameObject;
 #include <GameObject.hpp>
+#include <SDL_events.h>
 
 
 class Component {
@@ -17,7 +18,7 @@ public:
 
     virtual void render();
     virtual void update();
-    virtual void handleEvents();
+    virtual void handleEvents(SDL_Event);
 
     void setGameObject(GameObject* gO);
 

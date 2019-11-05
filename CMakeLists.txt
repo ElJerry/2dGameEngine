@@ -28,7 +28,7 @@ add_executable(2dGameTest
     src/components/TextureComponent.cpp
     src/components/TransformComponent.cpp
     src/Vector2D.cpp
-)
+        src/components/ControllerComponent.cpp)
 
 target_link_libraries(2dGameTest ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
 

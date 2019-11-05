@@ -4,7 +4,7 @@ void Component::render(){}
 
 void Component::update(){}
 
-void Component::handleEvents(){}
+void Component::handleEvents(SDL_Event){}
 
 GameObject* Component::getGameObject(){
     return gameObject;

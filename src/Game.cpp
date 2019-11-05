@@ -5,10 +5,13 @@
 #include <components/RendererComponent.hpp>
 #include <components/TextureComponent.hpp>
 #include <components/SpriteAnimatorComponent.hpp>
+#include <components/ControllerComponent.h>
 
 using namespace std;
 
 SDL_Renderer* Game::ren;
+
+GameObject* player = nullptr;
 
 Game::Game() {}
 Game::~Game() {}
@@ -64,11 +67,12 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         }
         ren = renderer;
 
-        GameObject* gameObject = GameObject::addGameObject("mono1");
-        gameObject->addComponent<TextureComponent>("assets/male_sprite_model.png");
-        gameObject->addComponent<RendererComponent>();
-        gameObject->addComponent<SpriteAnimatorComponent>(4,8,32,64);
-        gameObject->getComponent<SpriteAnimatorComponent>()->setRow(2);
+        player = GameObject::addGameObject("player");
+        player->addComponent<TextureComponent>("assets/male_sprite_model.png");
+        player->addComponent<RendererComponent>();
+        player->addComponent<SpriteAnimatorComponent>(4,8,32,64);
+        player->getComponent<SpriteAnimatorComponent>()->setRow(2);
+        player->addComponent<ControllerComponent>();
 
         cout << "finished creating stuff" << endl;
         isRunning = true;
@@ -88,8 +92,10 @@ void Game::handleEvents()
             case SDL_QUIT:
                 isRunning = false;
                 break;
+            // Moving character
+            case SDL_KEYUP:
             case SDL_KEYDOWN:
-                GameObject::find("mono1")->getComponent<TransformComponent>()->speed.setX(1);
+                player->getComponent<ControllerComponent>()->handleEvents(event);
                 break;
             default:
                 break;
