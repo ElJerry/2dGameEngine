@@ -1,15 +1,16 @@
 #include <components/SpriteAnimatorComponent.hpp>
 
 void SpriteAnimatorComponent::update(){
-    
+
+    // Check if gameobject has a sourceRect from the renderer component
     if(!sourceRect){
         renderer = gameObject->getComponent<RendererComponent>();
         sourceRect = renderer->getSourceRect();
 
         if(!sourceRect) return;
-
     }
 
+    // check if gameobject has texture from the texture component
     if(!texture){
         texture = gameObject->getComponent<TextureComponent>();
         if(!texture) return;
@@ -20,10 +21,10 @@ void SpriteAnimatorComponent::update(){
 
     if(sourceRect){
         int x;
-        x = (presentColumn * width) % textureWidth;
+        x = (currentColumn * width) % textureWidth;
 
         if(animateFlag){
-            int columns = columnsInRow[presentRow];
+            int columns = columnsInRow[currentRow];
             int ticks = SDL_GetTicks();
 
             // if bounce image should repeat petter 1..n..1
@@ -40,7 +41,7 @@ void SpriteAnimatorComponent::update(){
                 x = width * x;
             }
             else{
-                //update x to next frame every 500ms
+                //update x to next frame every 100ms
                 x = (width * ((ticks / 100)% columns));
             }
         }
@@ -49,14 +50,14 @@ void SpriteAnimatorComponent::update(){
             return;
 
         sourceRect->x = x;
-        sourceRect->y = presentRow * height;
+        sourceRect->y = currentRow * height;
         sourceRect->w = width;
         sourceRect->h = height;
     }
 }
 
 void SpriteAnimatorComponent::setRow(int row){
-    presentRow = row;
+    currentRow = row;
 }
 
 void SpriteAnimatorComponent::setColumnsInRow(int rows, int columns){

@@ -9,7 +9,7 @@
 class SpriteAnimatorComponent : public Component {
 private:
     int rows, columns;
-    int presentRow, presentColumn;
+    int currentRow, currentColumn;
     int width, height, textureWidth, textureHeight;
     bool animateFlag = true;
     bool bounce = false;
@@ -29,7 +29,7 @@ public:
         this->width = width;
         this->height = height;
 
-        presentColumn = presentRow = 0;
+        currentColumn = currentRow = 0;
         
         columnsInRow.assign(rows, columns);
     }

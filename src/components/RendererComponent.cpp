@@ -2,8 +2,9 @@
 
 void RendererComponent::render(){
     // std::cout << "Rendering" << std::endl;
-    if(m_texture != NULL && renderer != NULL)
-        SDL_RenderCopy(renderer,m_texture,&sourceRect,&destRect);
+    if(m_texture != NULL && renderer != NULL){
+        SDL_RenderCopyEx(renderer, m_texture, &sourceRect, &destRect, 0, nullptr, m_flip);
+    }
 }
 
 
@@ -21,7 +22,7 @@ void RendererComponent::update(){
     }
 
     // transform component
-    if(transform==NULL){
+    if(!transform){
         transform = gameObject->getComponent<TransformComponent>();
     }
 
