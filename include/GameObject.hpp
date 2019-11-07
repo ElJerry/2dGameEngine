@@ -6,7 +6,7 @@
 #include <map>
 #include <string>
 
-// avoid ciclic compilation error
+// avoid cyclic compilation error
 class Component;
 
 #include <components/Component.hpp>

@@ -64,6 +64,10 @@ void SpriteAnimatorComponent::setColumnsInRow(int rows, int columns){
     columnsInRow[rows] = columns;
 }
 
+void SpriteAnimatorComponent::animate(bool animate) {
+    animateFlag = animate;
+}
+
 /*  
     When bounce is set to 'true', the animation will go from
     frame 1 to frame n and then back from n to 1

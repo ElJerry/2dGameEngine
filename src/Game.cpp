@@ -67,13 +67,18 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         }
         ren = renderer;
 
+        // create player and add required components
         player = GameObject::addGameObject("player");
         player->addComponent<TextureComponent>("assets/male_sprite_model.png");
         player->addComponent<RendererComponent>();
         player->addComponent<SpriteAnimatorComponent>(4,8,32,64);
-        player->getComponent<SpriteAnimatorComponent>()->setRow(2);
+        auto animator = player->getComponent<SpriteAnimatorComponent>();
+        animator->setRow(1);
+        animator->setColumnsInRow(0, 5);
+        animator->setColumnsInRow(1, 5);
+        animator->animate(false);
         player->addComponent<ControllerComponent>();
-
+        
         cout << "finished creating stuff" << endl;
         isRunning = true;
     }
