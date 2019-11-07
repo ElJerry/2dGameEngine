@@ -6,12 +6,11 @@
 #include <components/TextureComponent.hpp>
 #include <components/SpriteAnimatorComponent.hpp>
 #include <components/ControllerComponent.h>
+#include <gameObject/Player.h>
 
 using namespace std;
 
 SDL_Renderer* Game::ren;
-
-GameObject* player = nullptr;
 
 Game::Game() {}
 Game::~Game() {}
@@ -68,17 +67,8 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         ren = renderer;
 
         // create player and add required components
-        player = GameObject::addGameObject("player");
-        player->addComponent<TextureComponent>("assets/male_sprite_model.png");
-        player->addComponent<RendererComponent>();
-        player->addComponent<SpriteAnimatorComponent>(4,8,32,64);
-        auto animator = player->getComponent<SpriteAnimatorComponent>();
-        animator->setRow(1);
-        animator->setColumnsInRow(0, 5);
-        animator->setColumnsInRow(1, 5);
-        animator->animate(false);
-        player->addComponent<ControllerComponent>();
-        
+        new Player("Player");
+
         cout << "finished creating stuff" << endl;
         isRunning = true;
     }
@@ -97,13 +87,10 @@ void Game::handleEvents()
             case SDL_QUIT:
                 isRunning = false;
                 break;
-            // Moving character
-            case SDL_KEYUP:
-            case SDL_KEYDOWN:
-                player->getComponent<ControllerComponent>()->handleEvents(event);
-                break;
             default:
-                break;
+                for (auto go : GameObject::getGameObjects()){
+                    go->handleEvents(event);
+                }
         }
     }
 

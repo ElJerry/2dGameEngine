@@ -32,6 +32,12 @@ void GameObject::update(){
     }
 }
 
+void GameObject::handleEvents(SDL_Event event) {
+    for(Component* c : m_componnents){
+        if(c) c->handleEvents(event);
+    }
+}
+
 void GameObject::listComponents(){
     int cnt = 0;
 
