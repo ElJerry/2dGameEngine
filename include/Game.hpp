@@ -7,13 +7,14 @@ class Game {
 private:
     bool isRunning;
     SDL_Window *window = NULL;
-    SDL_Renderer *renderer = NULL;
-
     SDL_Texture *m_pTexture = NULL;
+
     SDL_Rect m_sourceRect;
     SDL_Rect m_targetRect;
 
 public:
+
+    static SDL_Renderer *renderer;
     Game();
     ~Game();
 

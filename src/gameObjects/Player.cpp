@@ -8,7 +8,7 @@
 #include <components/SpriteAnimatorComponent.hpp>
 
 Player::Player(char *name) : GameObject(name) {
-    this->addComponent<TextureComponent>("assets/male_sprite_model.png");
+    this->addComponent<TextureComponent>("assets/male.png");
     this->addComponent<RendererComponent>();
     this->addComponent<SpriteAnimatorComponent>(4,8,32,64);
     auto animator = this->getComponent<SpriteAnimatorComponent>();

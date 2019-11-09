@@ -2,16 +2,14 @@
 #include <iostream>
 #include <SDL.h>
 #include <GameObject.hpp>
-#include <components/RendererComponent.hpp>
-#include <components/TextureComponent.hpp>
-#include <components/SpriteAnimatorComponent.hpp>
-#include <components/ControllerComponent.h>
 #include <gameObject/Player.h>
+#include <gameObject/GameMap.h>
 
 using namespace std;
 
 SDL_Renderer* Game::ren;
-
+SDL_Renderer* Game::renderer;
+GameMap *gameMap;
 Game::Game() {}
 Game::~Game() {}
 
@@ -25,10 +23,12 @@ void Game::update()
 void Game::render()
 {
     SDL_RenderClear(renderer);
+    gameMap->drawMap();
     //add stuff to renderer
     for(GameObject* go : GameObject::getGameObjects()){
         go->render();
     }
+
     SDL_RenderPresent(renderer);
 }
 
@@ -66,8 +66,12 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         }
         ren = renderer;
 
+
         // create player and add required components
         new Player("Player");
+
+        // create map
+        gameMap = new GameMap("Mapa");
 
         cout << "finished creating stuff" << endl;
         isRunning = true;

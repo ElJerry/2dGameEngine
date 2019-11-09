@@ -9,7 +9,7 @@ using namespace std;
 
 class TextureComponent : public Component{
 private:
-    SDL_Texture *m_texture = NULL;
+    SDL_Texture *m_texture = nullptr;
     string texturePath = "";
 
     int width, height;
@@ -24,7 +24,7 @@ public:
             exit;
         }
 
-        SDL_QueryTexture(m_texture,NULL,NULL,&width,&height);
+        SDL_QueryTexture(m_texture,nullptr,nullptr,&width,&height);
         
         texturePath = path;
         std::cout << "Created texture\n";
