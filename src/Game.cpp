@@ -4,12 +4,12 @@
 #include <GameObject.hpp>
 #include <gameObject/Player.h>
 #include <gameObject/GameMap.h>
+#include <components/TileMapComponent.h>
 
 using namespace std;
 
 SDL_Renderer* Game::ren;
 SDL_Renderer* Game::renderer;
-GameMap *gameMap;
 Game::Game() {}
 Game::~Game() {}
 
@@ -23,7 +23,6 @@ void Game::update()
 void Game::render()
 {
     SDL_RenderClear(renderer);
-    gameMap->drawMap();
     //add stuff to renderer
     for(GameObject* go : GameObject::getGameObjects()){
         go->render();
@@ -66,12 +65,16 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         }
         ren = renderer;
 
+        // create map
+        auto map = new GameMap("Mapa");
+        auto mapComp = map->getComponent<TileMapComponent>();
+        mapComp->loadTexture("assets/grass.png");
+        mapComp->loadTexture("assets/dirt.png");
+        mapComp->createRandomMap();
 
         // create player and add required components
         new Player("Player");
 
-        // create map
-        gameMap = new GameMap("Mapa");
 
         cout << "finished creating stuff" << endl;
         isRunning = true;
