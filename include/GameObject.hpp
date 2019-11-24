@@ -27,7 +27,7 @@ public:
     GameObject(char* name);
 
 
-    void update();
+    virtual void update();
     void render();
     void handleEvents(SDL_Event);
     void listComponents();

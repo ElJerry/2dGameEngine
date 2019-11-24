@@ -4,7 +4,9 @@
 #include <GameObject.hpp>
 #include <gameObject/Player.h>
 #include <gameObject/GameMap.h>
+#include <gameObject/Floor.h>
 #include <components/TileMapComponent.h>
+#include <components/TransformComponent.hpp>
 
 using namespace std;
 
@@ -75,6 +77,9 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         // create player and add required components
         new Player("Player");
 
+        // create floor
+        auto floor = new Floor("floor1");
+        floor->getComponent<TransformComponent>()->position.setY(250);
 
         cout << "finished creating stuff" << endl;
         isRunning = true;
