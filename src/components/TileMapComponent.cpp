@@ -4,6 +4,10 @@
 #include <iostream>
 #include "components/TileMapComponent.h"
 
+#ifdef _WIN32
+#include <time.h>
+#endif
+
 TileMapComponent::TileMapComponent(int height, int width) {
     m_height = height;
     m_width = width;
