@@ -5,6 +5,7 @@
 #include <gameObject/Player.h>
 #include <components/TextureComponent.hpp>
 #include <components/ControllerComponent.h>
+#include <components/RigidBodyComponent.h>
 #include <components/SpriteAnimatorComponent.hpp>
 
 Player::Player(char *name) : GameObject(name) {
@@ -17,6 +18,7 @@ Player::Player(char *name) : GameObject(name) {
     animator->setColumnsInRow(1, 5);
     animator->animate(false);
     this->addComponent<ControllerComponent>();
+    this->addComponent<RigidBodyComponent>(this);
 }
 
 Player::~Player() {
