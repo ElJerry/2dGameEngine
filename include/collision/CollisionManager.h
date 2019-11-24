@@ -1,0 +1,8 @@
+#ifndef INC_2DGAMETEST_COLLISIONMANAGER_H
+#define INC_2DGAMETEST_COLLISIONMANAGER_H
+
+#include <SDL.h>
+
+bool areColliding(SDL_Rect* rectA, SDL_Rect* rectB);
+
+#endif //INC_2DGAMETEST_COLLISIONMANAGER_H

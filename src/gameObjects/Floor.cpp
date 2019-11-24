@@ -2,6 +2,7 @@
 #include <gameObject/Floor.h>
 #include <components/TextureComponent.hpp>
 #include <components/RendererComponent.hpp>
+#include <collision/CollisionManager.h>
 #include <sstream>
 
 Floor::Floor(char *name) : GameObject(name) {
@@ -22,6 +23,7 @@ Floor::Floor(char *name) : GameObject(name) {
 }
 
 void Floor::update() {
+    // Update position of the floor - should be static anyways
     float posX = this->getComponent<TransformComponent>()->position.getX();
     float posY = this->getComponent<TransformComponent>()->position.getY();
     for(int i = 0; i < objects.size(); i++){
