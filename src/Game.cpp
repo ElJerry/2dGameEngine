@@ -78,8 +78,9 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         new Player("Player");
 
         // create floor
-        auto floor = new Floor("floor1");
-        floor->getComponent<TransformComponent>()->position.setY(250);
+        new Floor("floor1", 0, 250);
+        new Floor("floor2", 100, 450);
+
 
         cout << "finished creating stuff" << endl;
         isRunning = true;

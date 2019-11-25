@@ -6,9 +6,6 @@ void TransformComponent::render(){
 }
 
 void TransformComponent::update(){
-    // std::cout << "update from transfomComponent\n";
-    int ticks = SDL_GetTicks();
-    
     speed.addVector(acceleration);
     position.addVector(speed);
 }

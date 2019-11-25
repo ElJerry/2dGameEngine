@@ -9,7 +9,7 @@ private:
     std::vector<GameObject*> objects;
 
 public:
-    Floor(char* name);
+    Floor(char* name, int x, int y);
     ~Floor();
 
     void update();

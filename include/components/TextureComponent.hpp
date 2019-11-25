@@ -13,7 +13,7 @@ private:
     string texturePath = "";
 
     int width, height;
-    
+
 public:
 
     TextureComponent(string path){
@@ -25,7 +25,7 @@ public:
         }
 
         SDL_QueryTexture(m_texture,nullptr,nullptr,&width,&height);
-        
+
         texturePath = path;
         std::cout << "Created texture\n";
     }

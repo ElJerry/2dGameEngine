@@ -19,7 +19,7 @@ private:
     int max_componnets = 35;
 
     static std::vector<GameObject*> gameObjects;
-    static std::map<char*, GameObject*> gameObjectsMap;
+    static std::map<std::string, GameObject*> gameObjectsMap;
     char* m_name = NULL;
 
 public:

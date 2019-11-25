@@ -3,7 +3,7 @@
 #include <utility>
 
 std::vector<GameObject*> GameObject::gameObjects;
-std::map<char*, GameObject*> GameObject::gameObjectsMap;
+std::map<std::string, GameObject*> GameObject::gameObjectsMap;
 
 GameObject::GameObject(char* name){
     m_name = name;
@@ -18,6 +18,7 @@ GameObject::GameObject(char* name){
 
     gameObjects.push_back(this);
     gameObjectsMap[name] = this;
+    std::cout << "Added " << name << " to map" << std::endl;
 }
 
 void GameObject::render(){

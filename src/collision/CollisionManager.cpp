@@ -3,6 +3,7 @@
 //
 
 #include <collision/CollisionManager.h>
+#include <iostream>
 
 bool areColliding(SDL_Rect* rectA, SDL_Rect* rectB){
     // sides of a
@@ -18,17 +19,21 @@ bool areColliding(SDL_Rect* rectA, SDL_Rect* rectB){
     int bottomB = rectB->y + rectB->h;
 
     // check if sides are colliding
-    if (rightB <= leftA)
+    if (rightB <= leftA){
         return false;
+    }
 
-    if (rightA <= leftB)
+    if (rightA <= leftB){
         return false;
+    }
 
-    if (bottomB <= topA)
+    if (bottomB <= topA){
         return false;
+    }
 
-    if (bottomA <= topB)
+    if (bottomA <= topB){
         return false;
+    }
 
     return true;
 }

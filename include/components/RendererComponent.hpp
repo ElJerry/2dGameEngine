@@ -14,11 +14,12 @@ private:
     TextureComponent *texture = NULL;
     
     SDL_Texture *m_texture = NULL;
-    SDL_Rect sourceRect, destRect;
+    SDL_Rect sourceRect;
     SDL_Renderer *renderer = NULL;
     SDL_RendererFlip m_flip = SDL_FLIP_NONE;
 
 public:
+    SDL_Rect destRect;
     RendererComponent(){
         // cout << "entre a renderer\n" ;
         renderer = Game::getRenderer();
