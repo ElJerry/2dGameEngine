@@ -92,6 +92,12 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         block->addComponent<ColliderComponent>(100, 100, nullptr);
         block->getComponent<TransformComponent>()->position = Vector2D{100, 100};
 
+        // temporary block for testing
+        auto block2 = new GameObject("Block2");
+        block2->addComponent<TextureComponent>("assets/redBlock.png");
+        block2->addComponent<RendererComponent>();
+        block2->addComponent<ColliderComponent>(100, 100, nullptr);
+        block2->getComponent<TransformComponent>()->position = Vector2D{300, 300};
         cout << "finished creating stuff" << endl;
         isRunning = true;
     }

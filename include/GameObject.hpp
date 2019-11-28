@@ -9,7 +9,6 @@
 
 // avoid cyclic compilation error
 class Component;
-
 #include <components/Component.hpp>
 
 class GameObject {
@@ -23,9 +22,7 @@ private:
     char* m_name = NULL;
 
 public:
-
     GameObject(char* name);
-
 
     virtual void update();
     void render();

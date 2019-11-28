@@ -42,7 +42,7 @@ void ColliderComponent::update() {
             std::cout << gameObject->getName() <<" colliding with " << c->gameObject->getName() << std::endl;
             // Execute callback if exists
             if (onCollision != nullptr){
-                onCollision(c->gameObject);
+                onCollision(gameObject, c->gameObject);
             }
         }
     }

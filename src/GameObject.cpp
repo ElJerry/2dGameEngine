@@ -14,7 +14,7 @@ GameObject::GameObject(char* name){
         m_componnents[i] = nullptr;
     }
     // all game objects must have a transform component
-    addComponent<TransformComponent>();   
+    addComponent<TransformComponent>();
 
     gameObjects.push_back(this);
     gameObjectsMap[name] = this;

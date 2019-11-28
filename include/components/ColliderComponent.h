@@ -6,7 +6,7 @@
 #include <SDL.h>
 #include <unordered_set>
 
-typedef void(*onCollisionCallback)(GameObject* other);
+typedef void(*onCollisionCallback)(GameObject* me, GameObject* other);
 
 class ColliderComponent : public Component{
 private:

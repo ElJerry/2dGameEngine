@@ -9,8 +9,53 @@
 #include <components/SpriteAnimatorComponent.hpp>
 #include <components/ColliderComponent.h>
 
-void onCollision(GameObject* other){
-    std::cout << "THE CALLBACK IS WORKING!!\n";
+void onCollision(GameObject* me, GameObject* other){
+    std::cout << "THE CALLBACK IS WORKING!! HIT " << other->getName() <<"\n";
+    auto meTransform = me->getComponent<TransformComponent>();
+    auto meCollider = me->getComponent<ColliderComponent>();
+
+    auto otherTransform = other->getComponent<TransformComponent>();
+    auto otherCollider = other->getComponent<ColliderComponent>();
+
+    // check left
+    if (meTransform->position.getX() < otherTransform->position.getX()) {
+        int diff = (meCollider->colliderRect.x + meCollider->colliderRect.w) - otherCollider->colliderRect.x;
+        if (diff < 3){
+            meTransform->position.setX(
+                    meCollider->colliderRect.x - (diff)
+            );
+        }
+    }
+
+    // check right
+    if ((meTransform->position.getX() + meCollider->colliderRect.w ) > otherTransform->position.getX() + otherCollider->colliderRect.w) {
+        int diff = (otherCollider->colliderRect.x + otherCollider->colliderRect.w) - (meCollider->colliderRect.x);
+        if (diff < 3) {
+            meTransform->position.setX(
+                    meTransform->position.getX() + (diff)
+            );
+        }
+    }
+
+    // check top
+    if (meTransform->position.getY() < otherTransform->position.getY()) {
+        int diff = (meTransform->position.getY() + meCollider->colliderRect.h ) - (otherTransform->position.getY());
+        if (diff < 3) {
+            meTransform->position.setY(
+                    (meTransform->position.getY()) - (diff)
+            );
+        }
+    }
+
+    // check bottom
+    if ((meTransform->position.getY() + meCollider->colliderRect.h) > (otherTransform->position.getY() + otherCollider->colliderRect.h)){
+        int diff = (otherTransform->position.getY() + otherCollider->colliderRect.h) - meTransform->position.getY();
+        if (diff < 3) {
+            meTransform->position.setY(
+                    meTransform->position.getY() + (diff)
+            );
+        }
+    }
 }
 
 Player::Player(char *name) : GameObject(name) {
