@@ -33,8 +33,9 @@ add_executable(2dGameTest
     src/gameObjects/GameMap.cpp
     src/components/TileMapComponent.cpp
     src/components/RigidBodyComponent.cpp
-    include/gameObject/Floor.h src/gameObjects/Floor.cpp
-    include/collision/CollisionManager.h src/collision/CollisionManager.cpp
+    src/gameObjects/Floor.cpp
+    src/collision/CollisionManager.cpp
+    src/components/ColliderComponent.cpp
 )
 
 target_link_libraries(2dGameTest ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

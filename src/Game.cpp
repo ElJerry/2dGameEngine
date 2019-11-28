@@ -7,6 +7,9 @@
 #include <gameObject/Floor.h>
 #include <components/TileMapComponent.h>
 #include <components/TransformComponent.hpp>
+#include <components/TextureComponent.hpp>
+#include <components/RendererComponent.hpp>
+#include <components/ColliderComponent.h>
 
 using namespace std;
 
@@ -17,6 +20,7 @@ Game::~Game() {}
 
 void Game::update()
 {
+    cout << "." << endl;
     for(GameObject* go : GameObject::getGameObjects()){
         go->update();
     }
@@ -78,9 +82,15 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         new Player("Player");
 
         // create floor
-        new Floor("floor1", 0, 250);
-        new Floor("floor2", 100, 450);
+//        new Floor("floor1", 0, 250);
+//        new Floor("floor2", 100, 450);
 
+        // temporary block for testing
+        auto block = new GameObject("Block");
+        block->addComponent<TextureComponent>("assets/redBlock.png");
+        block->addComponent<RendererComponent>();
+        block->addComponent<ColliderComponent>(100, 100, nullptr);
+        block->getComponent<TransformComponent>()->position = Vector2D{100, 100};
 
         cout << "finished creating stuff" << endl;
         isRunning = true;

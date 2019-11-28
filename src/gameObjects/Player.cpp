@@ -7,6 +7,11 @@
 #include <components/ControllerComponent.h>
 #include <components/RigidBodyComponent.h>
 #include <components/SpriteAnimatorComponent.hpp>
+#include <components/ColliderComponent.h>
+
+void onCollision(GameObject* other){
+    std::cout << "THE CALLBACK IS WORKING!!\n";
+}
 
 Player::Player(char *name) : GameObject(name) {
     this->addComponent<TextureComponent>("assets/male.png");
@@ -18,7 +23,9 @@ Player::Player(char *name) : GameObject(name) {
     animator->setColumnsInRow(1, 5);
     animator->animate(false);
     this->addComponent<ControllerComponent>();
-    this->addComponent<RigidBodyComponent>(this);
+//    this->addComponent<RigidBodyComponent>(this);
+
+    this->addComponent<ColliderComponent>(32,60, onCollision);
 }
 
 Player::~Player() {
