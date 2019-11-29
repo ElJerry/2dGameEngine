@@ -13,11 +13,11 @@ RigidBodyComponent::RigidBodyComponent(GameObject* go) {
 
     // Set gravity
     gravity.setX(0);
-    gravity.setY(.1);
+    gravity.setY(.3);
 }
 
 void RigidBodyComponent::update() {
-    transform->acceleration.addVector(gravity);
+    transform->speed.addVector(gravity);
 }
 
 void RigidBodyComponent::render(){}

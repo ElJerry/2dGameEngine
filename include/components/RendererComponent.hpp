@@ -29,7 +29,7 @@ public:
     ~RendererComponent(){};
 
     void render() override;
-
+    void updateRects();
     void update() override;
 
     SDL_Rect* getSourceRect();

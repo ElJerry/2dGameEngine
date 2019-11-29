@@ -2,13 +2,13 @@
 
 void RendererComponent::render(){
     // std::cout << "Rendering" << std::endl;
+    updateRects();
     if(m_texture != NULL && renderer != NULL){
         SDL_RenderCopyEx(renderer, m_texture, &sourceRect, &destRect, 0, nullptr, m_flip);
     }
 }
 
-
-void RendererComponent::update(){
+void RendererComponent::updateRects(){
     //make sure all required components are loaded and referenced
     // texture component
     if(!texture){
@@ -33,6 +33,8 @@ void RendererComponent::update(){
     destRect.h = sourceRect.h;
 
 }
+
+void RendererComponent::update(){};
 
 SDL_Rect* RendererComponent::getSourceRect(){
     return &sourceRect;

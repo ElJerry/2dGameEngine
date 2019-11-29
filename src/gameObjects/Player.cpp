@@ -9,6 +9,8 @@
 #include <components/SpriteAnimatorComponent.hpp>
 #include <components/ColliderComponent.h>
 
+#define PIXEL_OFFSET 12
+
 void onCollision(GameObject* me, GameObject* other){
     std::cout << "THE CALLBACK IS WORKING!! HIT " << other->getName() <<"\n";
     auto meTransform = me->getComponent<TransformComponent>();
@@ -17,10 +19,12 @@ void onCollision(GameObject* me, GameObject* other){
     auto otherTransform = other->getComponent<TransformComponent>();
     auto otherCollider = other->getComponent<ColliderComponent>();
 
+
+
     // check left
     if (meTransform->position.getX() < otherTransform->position.getX()) {
         int diff = (meCollider->colliderRect.x + meCollider->colliderRect.w) - otherCollider->colliderRect.x;
-        if (diff < 3){
+        if (diff < PIXEL_OFFSET){
             meTransform->position.setX(
                     meCollider->colliderRect.x - (diff)
             );
@@ -30,7 +34,7 @@ void onCollision(GameObject* me, GameObject* other){
     // check right
     if ((meTransform->position.getX() + meCollider->colliderRect.w ) > otherTransform->position.getX() + otherCollider->colliderRect.w) {
         int diff = (otherCollider->colliderRect.x + otherCollider->colliderRect.w) - (meCollider->colliderRect.x);
-        if (diff < 3) {
+        if (diff < PIXEL_OFFSET) {
             meTransform->position.setX(
                     meTransform->position.getX() + (diff)
             );
@@ -40,17 +44,19 @@ void onCollision(GameObject* me, GameObject* other){
     // check top
     if (meTransform->position.getY() < otherTransform->position.getY()) {
         int diff = (meTransform->position.getY() + meCollider->colliderRect.h ) - (otherTransform->position.getY());
-        if (diff < 3) {
+        cout << "Arriba: " << diff << endl;
+        if (diff < PIXEL_OFFSET) {
             meTransform->position.setY(
                     (meTransform->position.getY()) - (diff)
             );
+            meTransform->speed.setY(0);
         }
     }
 
     // check bottom
     if ((meTransform->position.getY() + meCollider->colliderRect.h) > (otherTransform->position.getY() + otherCollider->colliderRect.h)){
         int diff = (otherTransform->position.getY() + otherCollider->colliderRect.h) - meTransform->position.getY();
-        if (diff < 3) {
+        if (diff < PIXEL_OFFSET) {
             meTransform->position.setY(
                     meTransform->position.getY() + (diff)
             );
@@ -68,7 +74,7 @@ Player::Player(char *name) : GameObject(name) {
     animator->setColumnsInRow(1, 5);
     animator->animate(false);
     this->addComponent<ControllerComponent>();
-//    this->addComponent<RigidBodyComponent>(this);
+    this->addComponent<RigidBodyComponent>(this);
 
     this->addComponent<ColliderComponent>(32,60, onCollision);
 }
