@@ -1,8 +1,11 @@
+#include <iostream>
 #include "components/Component.hpp"
 
 void Component::render(){}
 
 void Component::update(){}
+
+void Component::onCollisionEvent(GameObject *other) {}
 
 void Component::handleEvents(SDL_Event){}
 

@@ -4,7 +4,7 @@
 
 std::unordered_set<ColliderComponent*> ColliderComponent::colliders;
 
-ColliderComponent::ColliderComponent(int w, int h, onCollisionCallback callback) {
+ColliderComponent::ColliderComponent(int w, int h, onCollisionCallback callback = nullptr) {
     colliders.insert(this);
     colliderRect.w = w;
     colliderRect.h = h;
@@ -41,11 +41,15 @@ void ColliderComponent::update() {
         if (areColliding(&colliderRect, &c->colliderRect)){
             std::cout << gameObject->getName() <<" colliding with " << c->gameObject->getName() << std::endl;
             // Execute callback if exists
-            if (onCollision != nullptr){
+            if (onCollision){ // if callback exists
                 onCollision(gameObject, c->gameObject);
+            }
+
+            for(auto component : gameObject->m_componnents) {
+                if (component) { // if component exists
+                    component->onCollisionEvent(c->gameObject);
+                }
             }
         }
     }
-
-
 }

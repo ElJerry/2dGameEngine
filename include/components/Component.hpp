@@ -23,4 +23,7 @@ public:
     void setGameObject(GameObject* gO);
 
     GameObject* getGameObject();
+
+    // Events
+    virtual void onCollisionEvent(GameObject* other);
 };

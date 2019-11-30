@@ -12,8 +12,6 @@ class Component;
 #include <components/Component.hpp>
 
 class GameObject {
-protected:
-    std::vector<Component*> m_componnents;
 private:
     int max_componnets = 35;
 
@@ -22,6 +20,8 @@ private:
     char* m_name = NULL;
 
 public:
+    std::vector<Component*> m_componnents;
+
     GameObject(char* name);
 
     virtual void update();

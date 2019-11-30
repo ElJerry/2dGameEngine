@@ -72,6 +72,3 @@ void ControllerComponent::update() {
 }
 
 void ControllerComponent::render() {}
-
-
-
