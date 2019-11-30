@@ -5,12 +5,9 @@ class GameObject;
 #include <GameObject.hpp>
 #include <SDL_events.h>
 
-
 class Component {
-
 protected:
-
-    GameObject* gameObject = NULL;
+    GameObject* gameObject = nullptr;
 
 public:
     Component(){};

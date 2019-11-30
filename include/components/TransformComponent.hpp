@@ -11,10 +11,8 @@ public:
     Vector2D acceleration;
     Vector2D speed;
 
-    TransformComponent(){}
+    TransformComponent()= default;
 
-    void render() ;
-    void update() ;
-    void handleEvents() ;
+    void update() override;
     void info();
 };

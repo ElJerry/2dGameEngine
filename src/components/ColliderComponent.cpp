@@ -32,22 +32,22 @@ void ColliderComponent::update() {
     colliderRect.y = m_transform->position.getY();
 
     // check if is colliding with another collider
-    for ( auto c : colliders){
+    for ( auto collider : colliders){
 
         // ignore self collider
-        if (this == c)
+        if (this == collider)
             continue;
 
-        if (areColliding(&colliderRect, &c->colliderRect)){
-            std::cout << gameObject->getName() <<" colliding with " << c->gameObject->getName() << std::endl;
+        if (areColliding(&colliderRect, &collider->colliderRect)){
+            std::cout << gameObject->getName() << " colliding with " << collider->gameObject->getName() << std::endl;
             // Execute callback if exists
             if (onCollision){ // if callback exists
-                onCollision(gameObject, c->gameObject);
+                onCollision(gameObject, collider->gameObject);
             }
 
             for(auto component : gameObject->m_componnents) {
                 if (component) { // if component exists
-                    component->onCollisionEvent(c->gameObject);
+                    component->onCollisionEvent(collider->gameObject);
                 }
             }
         }

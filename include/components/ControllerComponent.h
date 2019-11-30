@@ -12,7 +12,6 @@ public:
     ControllerComponent();
     ~ControllerComponent();
 
-    void render() override;
     void update() override;
     void handleEvents(SDL_Event) override;
 };

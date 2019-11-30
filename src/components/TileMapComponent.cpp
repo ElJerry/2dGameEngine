@@ -50,7 +50,6 @@ void TileMapComponent::createRandomMap(){
         }
         std::cout << "\n";
     }
-
 }
 
 void TileMapComponent::setWidth(int width){

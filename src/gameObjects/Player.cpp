@@ -44,7 +44,6 @@ void onCollision(GameObject* me, GameObject* other){
     // check top
     if (meTransform->position.getY() < otherTransform->position.getY()) {
         int diff = (meTransform->position.getY() + meCollider->colliderRect.h ) - (otherTransform->position.getY());
-        cout << "Arriba: " << diff << endl;
         if (diff < PIXEL_OFFSET) {
             meTransform->position.setY(
                     (meTransform->position.getY()) - (diff)

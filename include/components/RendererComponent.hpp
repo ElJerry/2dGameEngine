@@ -10,27 +10,25 @@ using namespace std;
 
 class RendererComponent : public Component {
 private:
-    TransformComponent *transform = NULL;
-    TextureComponent *texture = NULL;
+    TransformComponent *transform = nullptr;
+    TextureComponent *texture = nullptr;
     
-    SDL_Texture *m_texture = NULL;
-    SDL_Rect sourceRect;
-    SDL_Renderer *renderer = NULL;
+    SDL_Texture *m_texture = nullptr;
+    SDL_Rect sourceRect = {0, 0};
+    SDL_Renderer *renderer = nullptr;
     SDL_RendererFlip m_flip = SDL_FLIP_NONE;
 
 public:
-    SDL_Rect destRect;
+    SDL_Rect destRect = {0, 0};
+
     RendererComponent(){
-        // cout << "entre a renderer\n" ;
         renderer = Game::getRenderer();
-        // cout << "Renderer grabed is " << renderer << endl;
-        // std::cout << "RendererComponent created" << std::endl;
     }
+
     ~RendererComponent(){};
 
     void render() override;
     void updateRects();
-    void update() override;
 
     SDL_Rect* getSourceRect();
     

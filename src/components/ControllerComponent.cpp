@@ -70,5 +70,3 @@ void ControllerComponent::update() {
         m_speed = &gameObject->getComponent<TransformComponent>()->speed;
     }
 }
-
-void ControllerComponent::render() {}

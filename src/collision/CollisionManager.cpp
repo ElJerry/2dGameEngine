@@ -3,7 +3,6 @@
 //
 
 #include <collision/CollisionManager.h>
-#include <iostream>
 
 bool areColliding(SDL_Rect* rectA, SDL_Rect* rectB){
     // sides of a

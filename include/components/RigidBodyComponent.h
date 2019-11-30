@@ -13,9 +13,7 @@ public:
 
     RigidBodyComponent(GameObject* go);
 
-    void update();
-    void render();
-    void handleEvents();
+    void update() override;
 };
 
 #endif //INC_2DGAMETEST_RIGIDBODYCOMPONENT_H

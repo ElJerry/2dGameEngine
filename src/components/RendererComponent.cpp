@@ -3,7 +3,7 @@
 void RendererComponent::render(){
     // std::cout << "Rendering" << std::endl;
     updateRects();
-    if(m_texture != NULL && renderer != NULL){
+    if(m_texture != nullptr && renderer != nullptr){
         SDL_RenderCopyEx(renderer, m_texture, &sourceRect, &destRect, 0, nullptr, m_flip);
     }
 }
@@ -15,10 +15,8 @@ void RendererComponent::updateRects(){
         texture = gameObject->getComponent<TextureComponent>();
         m_texture = texture->getTexture();
         //load size of texture into sourceRect
-        SDL_QueryTexture(m_texture,NULL,NULL,
-                            &sourceRect.w,&sourceRect.h);
-        
-        sourceRect.x = sourceRect.y = 0;
+        SDL_QueryTexture(m_texture,nullptr,nullptr,
+                            &sourceRect.w, &sourceRect.h);
     }
 
     // transform component
@@ -33,8 +31,6 @@ void RendererComponent::updateRects(){
     destRect.h = sourceRect.h;
 
 }
-
-void RendererComponent::update(){};
 
 SDL_Rect* RendererComponent::getSourceRect(){
     return &sourceRect;
