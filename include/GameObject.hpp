@@ -48,18 +48,15 @@ public:
     template <typename T, typename... TArgs>
     bool addComponent(TArgs&&... mArgs){
       T *comp = new T(std::forward<TArgs>(mArgs)...);
-      Component *c = static_cast<Component*>(comp);
-      c->setGameObject(this);
-
+      comp->setGameObject(this);
       m_componnents[ComponentIdentifier::getComponentID<T>()] = comp;
-
       return 1;
     }
 
     template <typename T>
     inline T* getComponent(){
       int compId = ComponentIdentifier::getComponentID<T>();
-      auto *comp = m_componnents[compId];
+      auto comp = m_componnents[compId];
       return static_cast<T*>(comp);
     }
 };
