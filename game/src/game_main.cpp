@@ -3,6 +3,7 @@
 #include <components/TextureComponent.hpp>
 #include <components/RendererComponent.hpp>
 #include <components/ColliderComponent.h>
+#include <GameScripts/GameScript.h>
 #include <gameObject/GameMap.h>
 #include <gameObject/Player.h>
 #include <game_main.h>
@@ -32,6 +33,7 @@ void initGameElemets(){
         block2->addComponent<ColliderComponent>(100, 100, nullptr);
         block2->getComponent<TransformComponent>()->position = Vector2D{0, 300};
         cout << "finished creating stuff" << endl;
+
 }
 
 void gameUpdate(){

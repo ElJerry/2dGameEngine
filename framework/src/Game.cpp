@@ -14,7 +14,6 @@ Game::~Game() {}
 
 void Game::update()
 {
-    cout << "." << endl;
     for(GameObject* go : GameObject::getGameObjects()){
         go->update();
     }
