@@ -6,6 +6,7 @@
 #include <GameScripts/GameScript.h>
 #include <gameObject/GameMap.h>
 #include <gameObject/Player.h>
+#include <camera/Camera.h>
 #include <game_main.h>
 
 void initGameElemets(){
@@ -34,6 +35,8 @@ void initGameElemets(){
         block2->getComponent<TransformComponent>()->position = Vector2D{0, 300};
         cout << "finished creating stuff" << endl;
 
+        // Center camera to player
+        Camera::setCenteredObject(player);
 }
 
 void gameUpdate(){

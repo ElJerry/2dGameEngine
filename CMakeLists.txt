@@ -35,6 +35,7 @@ add_executable(2dGameTest
     framework/src/components/RigidBodyComponent.cpp
     framework/src/components/ColliderComponent.cpp
     framework/src/collision/CollisionManager.cpp
+    framework/src/camera/Camera.cpp
 
     # Game binaries
     game/src/game_main.cpp

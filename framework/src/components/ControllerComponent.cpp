@@ -1,6 +1,7 @@
 #include <components/ControllerComponent.h>
 #include <components/TransformComponent.hpp>
 #include <components/SpriteAnimatorComponent.hpp>
+#include <camera/Camera.h>
 
 ControllerComponent::ControllerComponent() {
 }

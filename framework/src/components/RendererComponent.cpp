@@ -1,4 +1,5 @@
 #include "components/RendererComponent.hpp"
+#include <camera/Camera.h>
 
 void RendererComponent::render(){
     // std::cout << "Rendering" << std::endl;
@@ -29,6 +30,11 @@ void RendererComponent::updateRects(){
     destRect.y = transform->position.getY();
     destRect.w = sourceRect.w;
     destRect.h = sourceRect.h;
+
+    // calculate against camera offset
+    auto cameraOffset = Camera::getOffset();
+    destRect.x -= cameraOffset.getX();
+    destRect.y -= cameraOffset.getY(); 
 
 }
 

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <SDL.h>
 #include <GameObject.hpp>
+#include <camera/Camera.h>
 
 #include "../../game/include/game_main.h"
 
@@ -20,6 +21,9 @@ void Game::update()
 
     // call update function from game
     gameUpdate();
+
+    // update camera information
+    Camera::calculateOffsets();
 }
 
 void Game::render()

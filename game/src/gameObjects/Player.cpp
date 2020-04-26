@@ -75,6 +75,8 @@ Player::Player(char *name) : GameObject(name) {
     this->addComponent<ControllerComponent>();
 
     this->addComponent<ColliderComponent>(32,60, onCollision);
+
+    this->getComponent<TransformComponent>()->position = {400, 300};
 }
 
 Player::~Player() {
