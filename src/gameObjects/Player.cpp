@@ -73,7 +73,6 @@ Player::Player(char *name) : GameObject(name) {
     animator->setColumnsInRow(1, 5);
     animator->animate(false);
     this->addComponent<ControllerComponent>();
-    this->addComponent<RigidBodyComponent>(this);
 
     this->addComponent<ColliderComponent>(32,60, onCollision);
 }

@@ -12,6 +12,7 @@ ColliderComponent::ColliderComponent(int w, int h, onCollisionCallback callback 
 }
 
 ColliderComponent::~ColliderComponent() {
+    // remove this collider from the list of colliders in the game
     colliders.erase(this);
 }
 
@@ -41,7 +42,7 @@ void ColliderComponent::update() {
         if (areColliding(&colliderRect, &collider->colliderRect)){
             std::cout << gameObject->getName() << " colliding with " << collider->gameObject->getName() << std::endl;
             // Execute callback if exists
-            if (onCollision){ // if callback exists
+            if (onCollision) { // if callback exists
                 onCollision(gameObject, collider->gameObject);
             }
 

@@ -4,7 +4,6 @@
 #include <GameObject.hpp>
 #include <gameObject/Player.h>
 #include <gameObject/GameMap.h>
-#include <gameObject/Floor.h>
 #include <components/TileMapComponent.h>
 #include <components/TransformComponent.hpp>
 #include <components/TextureComponent.hpp>
@@ -79,11 +78,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         mapComp->createRandomMap();
 
         // create player and add required components
-        new Player("Player");
-
-        // create floor
-//        new Floor("floor1", 0, 250);
-//        new Floor("floor2", 100, 450);
+        auto player = new Player("Player");
 
         // temporary block for testing
         auto block = new GameObject("Block");

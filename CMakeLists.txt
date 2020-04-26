@@ -33,7 +33,6 @@ add_executable(2dGameTest
     src/gameObjects/GameMap.cpp
     src/components/TileMapComponent.cpp
     src/components/RigidBodyComponent.cpp
-    src/gameObjects/Floor.cpp
     src/collision/CollisionManager.cpp
     src/components/ColliderComponent.cpp
 )
