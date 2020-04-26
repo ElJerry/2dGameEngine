@@ -18,6 +18,9 @@ void Game::update()
     for(GameObject* go : GameObject::getGameObjects()){
         go->update();
     }
+
+    // call update function from game
+    gameUpdate();
 }
 
 void Game::render()
@@ -90,6 +93,9 @@ void Game::handleEvents()
                 }
         }
     }
+
+    // call events from game
+    gameEvents();
 
 }
 

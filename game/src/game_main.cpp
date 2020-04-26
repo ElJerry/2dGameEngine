@@ -8,7 +8,6 @@
 #include <game_main.h>
 
 void initGameElemets(){
-    system("pwd");
     // create map
         auto map = new GameMap("Mapa");
         auto mapComp = map->getComponent<TileMapComponent>();
@@ -33,4 +32,12 @@ void initGameElemets(){
         block2->addComponent<ColliderComponent>(100, 100, nullptr);
         block2->getComponent<TransformComponent>()->position = Vector2D{0, 300};
         cout << "finished creating stuff" << endl;
+}
+
+void gameUpdate(){
+
+}
+
+void gameEvents(){
+
 }
