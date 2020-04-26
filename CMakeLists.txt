@@ -9,7 +9,8 @@ find_package(SDL2_image REQUIRED)
 
 
 include_directories(
-    include
+    framework/include
+    game/include
     /usr/local/include/SDL2
     /usr/include/SDL2
     /usr/local/lib
@@ -17,25 +18,29 @@ include_directories(
 )
 
 add_executable(2dGameTest
-    src/main.cpp
-    src/components/Component.cpp
-    src/components/ComponentIdentifier.cpp
-    src/Game.cpp
-    src/GameObject.cpp
-    src/main.cpp
-    src/components/RendererComponent.cpp
-    src/components/SpriteAnimatorComponent.cpp
-    src/components/TextureComponent.cpp
-    src/components/TransformComponent.cpp
-    src/Vector2D.cpp
-    src/components/ControllerComponent.cpp
-    src/gameObjects/Player.cpp
-    src/gameObjects/GameMap.cpp
-    src/components/TileMapComponent.cpp
-    src/components/RigidBodyComponent.cpp
-    src/collision/CollisionManager.cpp
-    src/components/ColliderComponent.cpp
-)
+    # Framework binaries
+    framework/src/main.cpp
+    framework/src/Game.cpp
+    framework/src/GameObject.cpp
+    framework/src/main.cpp
+    framework/src/Vector2D.cpp
+    framework/src/components/Component.cpp
+    framework/src/components/ComponentIdentifier.cpp
+    framework/src/components/RendererComponent.cpp
+    framework/src/components/SpriteAnimatorComponent.cpp
+    framework/src/components/TextureComponent.cpp
+    framework/src/components/TransformComponent.cpp
+    framework/src/components/ControllerComponent.cpp
+    framework/src/components/TileMapComponent.cpp
+    framework/src/components/RigidBodyComponent.cpp
+    framework/src/components/ColliderComponent.cpp
+    framework/src/collision/CollisionManager.cpp
+
+    # Game binaries
+    game/src/game_main.cpp
+    game/src/gameObjects/Player.cpp
+    game/src/gameObjects/GameMap.cpp
+    )
 
 target_link_libraries(2dGameTest ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
 
