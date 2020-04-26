@@ -3,6 +3,7 @@
 #include <SDL_image.h>
 #include <iostream>
 #include "components/TileMapComponent.h"
+#include <camera/Camera.h>
 
 TileMapComponent::TileMapComponent(int height, int width) {
     m_height = height;
@@ -61,6 +62,7 @@ void TileMapComponent::setHeight(int height){
 }
 
 void TileMapComponent::render() {
+    auto cameraOffset = Camera::getOffset();
     for(int i=0; i < m_width; i++){
         for(int j = 0; j < m_height; j++){
             SDL_Rect src, dest;
@@ -74,8 +76,8 @@ void TileMapComponent::render() {
             src.h = src.w = dest.h = dest.w = 32;
             src.x = src.y = 0;
 
-            dest.x = 32 * j;
-            dest.y = 32 * i;
+            dest.x = (32 * j) - cameraOffset.getX();
+            dest.y = (32 * i) - cameraOffset.getY();
 
             SDL_RenderCopy(Game::renderer, texture, &src, &dest);
         }

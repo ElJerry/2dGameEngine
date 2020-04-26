@@ -6,6 +6,6 @@
 
 GameMap::GameMap(char *name) : GameObject(name) {
 
-    addComponent<TileMapComponent>(25, 25);
+    addComponent<TileMapComponent>(30, 30);
     std::cout << "Added tile map component\n";
 }

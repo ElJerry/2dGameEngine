@@ -21,6 +21,8 @@ void Camera::calculateOffsets() {
     int offsetX = centeredObject->getComponent<TransformComponent>()->position.getX() - centerX;
     int offsetY = centeredObject->getComponent<TransformComponent>()->position.getY() - centerY;
 
+    offsetX = (offsetX < 0 ? 0 : offsetX);
+    offsetY = (offsetY < 0 ? 0 : offsetY);
     game_camera_offset = {offsetX, offsetY};
 
     std::cout << "current offset " << game_camera_offset.getX() << "," << game_camera_offset.getY() << std::endl;
