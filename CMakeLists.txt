@@ -11,6 +11,7 @@ find_package(SDL2_image REQUIRED)
 include_directories(
     framework/include
     game/include
+    game/scripts
     /usr/local/include/SDL2
     /usr/include/SDL2
     /usr/local/lib

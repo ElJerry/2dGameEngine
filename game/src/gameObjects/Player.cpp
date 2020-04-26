@@ -9,6 +9,8 @@
 #include <components/SpriteAnimatorComponent.hpp>
 #include <components/ColliderComponent.h>
 
+#include <AnimationSpriteSelector.h>
+
 #define PIXEL_OFFSET 12
 
 void onCollision(GameObject* me, GameObject* other){
@@ -73,9 +75,9 @@ Player::Player(char *name) : GameObject(name) {
     animator->setColumnsInRow(1, 5);
     animator->animate(false);
     this->addComponent<ControllerComponent>();
-
     this->addComponent<ColliderComponent>(32,60, onCollision);
 
+    this->addComponent<AnimationSpriteSelector>();
     this->getComponent<TransformComponent>()->position = {400, 300};
 }
 
